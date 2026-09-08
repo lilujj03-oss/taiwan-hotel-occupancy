@@ -655,23 +655,23 @@ elif page == "⭐ 星級認證效益分析":
         col_c, col_d = st.columns(2)
         with col_c:
             if "star_rating" in df.columns:
-                rev_by_star = df.groupby("star_rating")["revpar"].mean().sort_values(ascending=True).reset_index()
+                rev_by_star = star_summary.sort_values("RevPAR")[["star_rating", "RevPAR"]]
                 fig_rstar = px.bar(
-                    rev_by_star, x="revpar", y="star_rating",
-                    labels={"star_rating": "星等", "revpar": "RevPAR (NT$)"},
+                    rev_by_star, x="RevPAR", y="star_rating",
+                    labels={"star_rating": "星等", "RevPAR": "RevPAR (NT$)"},
                     template="plotly_dark",
                     orientation="h",
-                    color="revpar",
+                    color="RevPAR",
                     color_continuous_scale="Blues",
                     text_auto="$,.0f",
                 )
                 style_chart(fig_rstar, "💰 各星等平均 RevPAR（每可售房收益）")
                 st.plotly_chart(fig_rstar, use_container_width=True)
                 st.caption(
-                    "重點：RevPAR＝住房率 × ADR，星等越高兩者都升，差距被放大（五星約為三星 2.5 倍）。"
+                    "重點：RevPAR＝住房率 × ADR，星等越高兩者都升，差距被放大（五星約為三星 2.3 倍）。"
                     "「無星等/未評鑑」排在三星之上，是因為這組混了未送評的高價旅館（如日勝生加賀屋、"
-                    "漢來日月行館），ADR 偏高、拉起 RevPAR，即使其住房率為全組最低。此為簡單平均"
-                    "（每旅館×月一票），與上方星級總表的加權平均數字略有差異；卓越五星僅 1 間，不宜當類別比較。"
+                    "漢來日月行館），ADR 偏高、拉起 RevPAR，即使其住房率為全組最低。此為**加權平均**"
+                    "（客房營收 ÷ 可售房晚），與上方星級總表及簡報一致；卓越五星僅 1 間，不宜當類別比較。"
                 )
 
         with col_d:
