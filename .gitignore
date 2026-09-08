@@ -38,4 +38,4 @@ _shot*.png
 Thumbs.db
 
 # 其他工具的建置暫存
-.codex-ppt-build/
+.codex-*/
