@@ -693,6 +693,34 @@ elif page == "🌍 住客國籍與客源結構分析":
         "（逐旅館逐年）彙總，僅涵蓋觀光旅館，不含一般旅館與民宿。"
     )
 
+    china_path = PROCESSED_DIR / "china_visitors_annual.csv"
+    if china_path.exists():
+        st.markdown(
+            '<div class="section-divider-title">🇨🇳 為何預測模型限定 2023 年起：中國大陸旅客的體制斷裂</div>',
+            unsafe_allow_html=True,
+        )
+        china_df = pd.read_csv(china_path)
+        fig_china = px.line(
+            china_df, x="年", y="中國大陸來臺旅客萬人次", markers=True,
+            labels={"年": "年份", "中國大陸來臺旅客萬人次": "中國大陸來臺旅客（萬人次）"},
+            template="plotly_dark",
+        )
+        fig_china.update_traces(line_color="#ef4444")
+        fig_china.update_yaxes(rangemode="tozero")
+        fig_china.add_vrect(
+            x0=2019.5, x1=2022.5, fillcolor="#64748b", opacity=0.18, line_width=0,
+            annotation_text="COVID 邊境管制", annotation_position="top left",
+        )
+        style_chart(fig_china, "🇨🇳 中國大陸來臺旅客年入境人次（2011–2025）")
+        st.plotly_chart(fig_china, use_container_width=True)
+        st.caption(
+            "資料來源：交通部觀光署《來臺旅客統計》／《觀光統計年報》（2024–2025 為估計值，待官方定版）。"
+            "2015 年高峰約 418 萬人次 → 2016 年起管制趨嚴、逐年腰斬 → 2020–2022 疫情邊境關閉 → "
+            "2023 年起觀光尚未開放、僅約 22 萬（多為商務／轉機）。正因 2020 年前旅館需求由陸客團客顯著驅動、"
+            "2020–2022 疫情斷裂、2023 年起才是現行需求體制，**本專題刻意將預測模型限定在 2023 年起的資料，"
+            "以確保訓練與預測處於同一需求結構**；回補 2016–2019 並加入「陸客／團客占比」等體制控制變數列為未來工作。"
+        )
+
     if df_nat is None:
         st.warning("⚠️ 尚未載入住客國籍總表資料。")
     else:
