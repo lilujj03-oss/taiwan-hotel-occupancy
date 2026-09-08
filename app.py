@@ -306,12 +306,26 @@ if page == "📊 整體營運與住房趨勢":
         )
         st.markdown("<br>", unsafe_allow_html=True)
 
-        if {"year", "occupancy_rate", "avg_price", "revpar"}.issubset(df.columns):
-            yearly_metrics = df.groupby("year").agg(
-                住房率=("occupancy_rate", "mean"),
-                ADR=("avg_price", "mean"),
-                RevPAR=("revpar", "mean"),
+        if {"year", "total_rooms", "rooms_used", "room_revenue"}.issubset(df.columns):
+            _idx = df.copy()
+            _idx["_md"] = pd.to_datetime(
+                dict(year=_idx["year"], month=_idx["month"], day=1), errors="coerce"
             )
+            _idx["_avail"] = (
+                pd.to_numeric(_idx["total_rooms"], errors="coerce")
+                * _idx["_md"].dt.days_in_month
+            )
+            _idx["_sold"] = pd.to_numeric(_idx["rooms_used"], errors="coerce")
+            _idx["_rev"] = pd.to_numeric(_idx["room_revenue"], errors="coerce")
+            _g = _idx.groupby("year").agg(
+                _avail=("_avail", "sum"), _sold=("_sold", "sum"), _rev=("_rev", "sum")
+            )
+            # 採加權口徑，與下方「歷史年度營運總覽」表一致
+            yearly_metrics = pd.DataFrame({
+                "住房率": _g["_sold"] / _g["_avail"] * 100,
+                "ADR": _g["_rev"] / _g["_sold"],
+                "RevPAR": _g["_rev"] / _g["_avail"],
+            })
             base_year = int(yearly_metrics.index.min())
             indexed = (yearly_metrics / yearly_metrics.iloc[0] * 100).reset_index()
             indexed_long = indexed.melt(id_vars="year", var_name="營運指標", value_name="指數")
@@ -327,9 +341,11 @@ if page == "📊 整體營運與住房趨勢":
             fig_index.update_yaxes(range=[_span.min() - 3, _span.max() + 3])
             style_chart(fig_index, f"📈 2023–2025 年全台住房率、ADR、RevPAR 指數化走勢（{base_year} 年 = 100）")
             st.plotly_chart(fig_index, use_container_width=True)
+            _last = indexed.iloc[-1]
             st.caption(
-                f"以 {base_year} 年為基準（＝100），比較三項營運指標的相對變化速度；"
-                "絕對數值見下方「歷史年度營運總覽」表。"
+                f"三項指標均採**加權**口徑（與下方「歷史年度營運總覽」表一致）。"
+                f"{int(_last['year'])} 年住房率指數約 {_last['住房率']:.1f}、ADR 約 {_last['ADR']:.1f}"
+                f"——成長以「量」為主，房價尚未回到 {base_year} 年水準。"
             )
 
         st.markdown('<div class="section-divider-title">📅 月份季節性：淡旺季分布</div>', unsafe_allow_html=True)
