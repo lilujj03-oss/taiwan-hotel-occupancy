@@ -1,0 +1,15 @@
+{
+  "data_start": "2023-01",
+  "data_end": "2026-06",
+  "source_data_end": "2026-06",
+  "evaluation_train_end": "2025-12",
+  "holdout_start": "2026-01",
+  "holdout_end": "2026-06",
+  "evaluation_train_rows": 4138,
+  "test_rows": 694,
+  "production_rows": 4832,
+  "hotel_count": 127,
+  "selected_model": "Gradient Boosting",
+  "model_version": "monthly-through-202606-v2",
+  "test_input_policy": "前月已知營運欄位，不使用預測當月實際 ADR 或旅客比例"
+}

@@ -1,0 +1,5 @@
+{
+  "status": "not_ready",
+  "message": "尚未提供旅館端每日實際住房率，未訓練每日模型。",
+  "rows_with_actual_daily_occupancy": 0
+}

@@ -1,0 +1,32 @@
+{
+  "Baseline (縣市平均)": {
+    "mae": 14.13,
+    "rmse": 17.23,
+    "r2": 0.2134
+  },
+  "Linear Regression": {
+    "mae": 206.32,
+    "rmse": 828.15,
+    "r2": -1816.0258
+  },
+  "Ridge": {
+    "mae": 201.93,
+    "rmse": 821.76,
+    "r2": -1788.0945
+  },
+  "Decision Tree": {
+    "mae": 11.88,
+    "rmse": 15.03,
+    "r2": 0.4016
+  },
+  "Random Forest": {
+    "mae": 14.69,
+    "rmse": 17.59,
+    "r2": 0.1798
+  },
+  "Gradient Boosting": {
+    "mae": 14.34,
+    "rmse": 16.93,
+    "r2": 0.2408
+  }
+}

@@ -1,0 +1,38 @@
+# ── 虛擬環境 / 快取 ─────────────────────────────
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyc.*
+.ipynb_checkpoints/
+
+# ── 大型 / 原始 / 中繼資料（可由 src/ 腳本重新產生）────
+data/raw/
+data/processed/hotel_daily_features.csv
+data/processed/hotel_monthly_features.csv
+data/processed/hotel_monthly_features_current.csv
+
+# ── 只保留 App 執行需要的兩個模型，其餘 .pkl 不進 repo ──
+models/*.pkl
+!models/monthly_model_through_202606.pkl
+!models/decision_tree.pkl
+models/experiments/
+
+# ── 報告 / 簡報 / Word 文件（另存，不進作品集 repo）────
+*.docx
+*.pptx
+notebook lm/
+hotel_booking_cancellation/
+app/
+
+# ── log / 暫存 / 截圖 ────────────────────────────
+*.log
+streamlit-*.err.log
+streamlit-*.out.log
+_*.png
+_shot*.png
+
+# ── 系統 ───────────────────────────────────────
+.DS_Store
+Thumbs.db

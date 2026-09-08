@@ -1,0 +1,50 @@
+﻿{
+  "provider": "行政院人事行政總處",
+  "dataset": "中華民國政府行政機關辦公日曆表",
+  "source_page": "https://data.gov.tw/dataset/14718",
+  "official_status_definition": {
+    "0": "上班",
+    "2": "放假"
+  },
+  "downloaded_files": [
+    {
+      "year": 2023,
+      "file": "data\\raw\\calendar\\official_work_calendar_2023.csv",
+      "rows": 365,
+      "source_encoding": "utf-8-sig",
+      "sha256": "6cdc13b2e33a38abeabf3ae1e31555f828f2f0f7f9263e531fb36bba531dacea"
+    },
+    {
+      "year": 2024,
+      "file": "data\\raw\\calendar\\official_work_calendar_2024.csv",
+      "rows": 366,
+      "source_encoding": "utf-8-sig",
+      "sha256": "365de663017f123a9f8100fec47706bdbae67ed7810a995659fa4743d89bbee8"
+    },
+    {
+      "year": 2025,
+      "file": "data\\raw\\calendar\\official_work_calendar_2025.csv",
+      "rows": 365,
+      "source_encoding": "big5",
+      "sha256": "b4bd40d4d1f4ffc20cb724a07bf3b7c5c1b32a9100e55dcf216f329af3513ca6"
+    },
+    {
+      "year": 2026,
+      "file": "data\\raw\\calendar\\official_work_calendar_2026.csv",
+      "rows": 365,
+      "source_encoding": "utf-8-sig",
+      "sha256": "0edd80d368626eb73caa05b6c33400ec9d87691b46834d03936efb91e6a0f00d"
+    },
+    {
+      "year": 2027,
+      "file": "data\\raw\\calendar\\official_work_calendar_2027.csv",
+      "rows": 365,
+      "source_encoding": "utf-8-sig",
+      "sha256": "e30df188649bf5347db3ec43fa989af2cc8d93d793fbe5c9891601e6cce4acf3"
+    }
+  ],
+  "daily_output": "data\\processed\\taiwan_official_daily_calendar.csv",
+  "monthly_output": "data\\processed\\taiwan_monthly_calendar_features.csv",
+  "date_start": "2023-01-01",
+  "date_end": "2027-12-31"
+}

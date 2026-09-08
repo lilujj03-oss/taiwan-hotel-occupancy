@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>月度住房率模型｜參數與衍生指標分析</title>
+<style>
+  :root{
+    --bg:#f7f6f3; --panel:#ffffff; --ink:#1c1b19; --muted:#6b6862;
+    --line:#e3e0da; --line-strong:#cdc8bf;
+    --accent:#1f6f5c; --accent-soft:#e6f0ec;
+    --warn:#a8611b; --warn-soft:#fbf0e3;
+    --danger:#a33a34; --danger-soft:#fbebea;
+    --code-bg:#f0eee9;
+    --mono:'Cascadia Mono','Consolas','JetBrains Mono',ui-monospace,monospace;
+    --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,-apple-system,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#16181a; --panel:#1e2124; --ink:#e6e4e0; --muted:#9a968e;
+      --line:#2e3236; --line-strong:#3d4247;
+      --accent:#5fbfa3; --accent-soft:#1c2f2a;
+      --warn:#d99a52; --warn-soft:#2e2519;
+      --danger:#e0796f; --danger-soft:#301e1c;
+      --code-bg:#24282b;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+       font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding:0 28px 96px}
+
+  header{padding:56px 0 34px;border-bottom:2px solid var(--line-strong);margin-bottom:8px}
+  .eyebrow{font-size:12px;letter-spacing:.22em;color:var(--accent);font-weight:700;margin-bottom:14px}
+  h1{font-size:34px;line-height:1.28;margin:0 0 14px;letter-spacing:-.01em;font-weight:700}
+  .sub{color:var(--muted);font-size:14px;margin:0}
+  .sub code{font-family:var(--mono);font-size:12.5px;background:var(--code-bg);padding:1px 5px;border-radius:3px}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:26px 0 0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:14px 16px}
+  .card .k{font-size:11.5px;letter-spacing:.06em;color:var(--muted);margin-bottom:5px}
+  .card .v{font-size:21px;font-weight:700;letter-spacing:-.01em;font-family:var(--mono)}
+  .card .n{font-size:11.5px;color:var(--muted);margin-top:3px}
+
+  h2{font-size:21px;margin:54px 0 6px;padding-top:22px;border-top:1px solid var(--line);
+     letter-spacing:-.005em;font-weight:700}
+  h2 .num{color:var(--accent);font-family:var(--mono);font-size:16px;margin-right:10px}
+  h3{font-size:15.5px;margin:30px 0 10px;font-weight:700}
+  p{margin:12px 0}
+  .lead{color:var(--muted);font-size:14px;margin:4px 0 20px}
+
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;background:var(--panel)}
+  .scroll{overflow-x:auto;border:1px solid var(--line);border-radius:9px;margin:18px 0}
+  .scroll table{margin:0;border-radius:0}
+  th,td{padding:9px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{background:var(--code-bg);font-size:11.5px;letter-spacing:.05em;color:var(--muted);
+           font-weight:700;white-space:nowrap;border-bottom:1px solid var(--line-strong)}
+  tbody tr:last-child td{border-bottom:none}
+  td.mono,th.mono{font-family:var(--mono);font-size:12.5px;white-space:nowrap}
+  td.num{text-align:right;font-family:var(--mono);font-size:12.5px}
+  tr.best td{background:var(--accent-soft)}
+  tr.best td:first-child::after{content:'  ← 採用';color:var(--accent);font-size:11px;font-weight:700}
+
+  code{font-family:var(--mono);font-size:12.5px;background:var(--code-bg);padding:1.5px 5px;border-radius:3px}
+  pre{background:var(--code-bg);border:1px solid var(--line);border-radius:8px;padding:14px 16px;
+      overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.65;margin:16px 0}
+  pre .c{color:var(--muted)}
+  pre .hl{color:var(--accent);font-weight:700}
+
+  .formula{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+           border-radius:0 8px 8px 0;padding:14px 18px;margin:18px 0;font-family:var(--mono);
+           font-size:13.5px;text-align:center;line-height:2}
+  .frac{display:inline-block;vertical-align:middle;text-align:center;margin:0 4px}
+  .frac .t{border-bottom:1.5px solid currentColor;padding:0 8px 2px;display:block}
+  .frac .b{padding:3px 8px 0;display:block}
+
+  .note{border-radius:9px;padding:14px 18px;margin:20px 0;font-size:13.5px;border:1px solid}
+  .note .t{font-weight:700;margin-bottom:5px;font-size:13px;letter-spacing:.02em}
+  .note.warn{background:var(--warn-soft);border-color:var(--warn);color:var(--ink)}
+  .note.warn .t{color:var(--warn)}
+  .note.info{background:var(--accent-soft);border-color:var(--accent)}
+  .note.info .t{color:var(--accent)}
+  .note.danger{background:var(--danger-soft);border-color:var(--danger)}
+  .note.danger .t{color:var(--danger)}
+  .note p{margin:7px 0}
+  .note :last-child{margin-bottom:0}
+
+  .bars{margin:18px 0}
+  .bar{display:grid;grid-template-columns:190px 1fr 62px;align-items:center;gap:12px;
+       padding:5px 0;font-size:13px}
+  .bar .lbl{font-family:var(--mono);font-size:12px;color:var(--ink);
+            overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .bar .track{background:var(--code-bg);border-radius:3px;height:16px;overflow:hidden}
+  .bar .fill{height:100%;background:var(--accent);border-radius:3px}
+  .bar .fill.dim{background:var(--line-strong)}
+  .bar .val{text-align:right;font-family:var(--mono);font-size:12px;color:var(--muted)}
+
+  .pipe{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:20px 22px;margin:18px 0;
+        font-family:var(--mono);font-size:12.5px;line-height:2.1;overflow-x:auto}
+  .pipe .step{color:var(--accent);font-weight:700}
+  .pipe .arrow{color:var(--muted);padding-left:8px}
+
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+  .tag{font-size:11.5px;padding:3px 10px;border-radius:20px;border:1px solid var(--line-strong);
+       color:var(--muted);background:var(--panel)}
+  .tag.a{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+  .tag.w{border-color:var(--warn);color:var(--warn);background:var(--warn-soft)}
+
+  footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);
+         color:var(--muted);font-size:12.5px;line-height:1.9}
+  @media print{body{background:#fff}.wrap{max-width:none}h2{page-break-after:avoid}
+               table,.note,.formula{page-break-inside:avoid}}
+  @media (max-width:640px){
+    .wrap{padding:0 16px 60px}h1{font-size:26px}
+    .bar{grid-template-columns:130px 1fr 52px;gap:8px}
+    .bar .lbl{font-size:11px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">MODEL ANALYSIS · 2026-09-04</div>
+  <h1>月度住房率模型<br>參數結構與衍生指標分析</h1>
+  <p class="sub">
+    模型檔 <code>models/monthly_model_through_202606.pkl</code>ㅤ·ㅤ
+    訓練程式 <code>src/train_monthly_current.py</code>ㅤ·ㅤ
+    應用頁 <code>pages/2_月度預測分析.py</code>
+  </p>
+
+  <div class="cards">
+    <div class="card"><div class="k">演算法</div><div class="v" style="font-size:17px">Gradient Boosting</div><div class="n">n=200, depth=3, lr=0.04</div></div>
+    <div class="card"><div class="k">訓練資料</div><div class="v">4,832</div><div class="n">127 家 × 42 個月</div></div>
+    <div class="card"><div class="k">資料期間</div><div class="v" style="font-size:17px">2023-01 ~ 2026-06</div><div class="n">官方月報，無缺月</div></div>
+    <div class="card"><div class="k">輸入特徵</div><div class="v">21</div><div class="n">19 數值 + 2 類別</div></div>
+    <div class="card"><div class="k">模型輸出</div><div class="v" style="color:var(--accent)">1</div><div class="n">僅住房率</div></div>
+    <div class="card"><div class="k">次月 MAE</div><div class="v">6.08</div><div class="n">個百分點 / R²=0.845</div></div>
+  </div>
+</header>
+
+<h2><span class="num">01</span>核心結論：模型只預測一個數字</h2>
+<p class="lead">整套系統中，機器學習模型回答的問題只有一個 ——「這家旅館下個月會住到幾成滿？」</p>
+
+<p>目標變數是 <code>occupancy_rate</code>（月度住房率，0–100 百分點），訓練指令為
+<code>model.fit(production[FEATURES], production["occupancy_rate"])</code>，輸出再以
+<code>np.clip(0, 100)</code> 限幅。畫面上其餘所有數字，都不是模型預測的結果。</p>
+
+<div class="note info">
+  <div class="t">三分法：畫面上的數字分成三類</div>
+  <p><strong>A. 模型預測</strong>（1 個）— 月度住房率。</p>
+  <p><strong>B. 預測值 × 使用者輸入</strong>（3 個）— 售出間夜、RevPAR、客房收入。每一項都需要第二個原料，而那個原料是使用者自己填的營運假設。</p>
+  <p><strong>C. 與預測無關</strong>（其餘）— 純使用者輸入（ADR、客房數、員工數、客源比例）或純歷史實績（前月、去年同月、近 3 月、歷史同月加權平均）。</p>
+</div>
+
+<p>多步預測採<strong>遞迴</strong>方式：把上個月的預測值回填成下個月的 <code>occupancy_lag_*</code> 特徵，再預測下一個月
+（<code>src/predict.py:363-370</code>）。所以第 2 個月以後是「用預測值當輸入再預測」，誤差會沿著時間累積。</p>
+
+<h2><span class="num">02</span>訓練用的 21 個輸入參數</h2>
+<p class="lead">定義於 <code>src/train_monthly_current.py:41-53</code>。數值欄位走中位數補值（Ridge 另加標準化），類別欄位走 One-Hot。</p>
+
+<div class="scroll">
+<table>
+  <thead><tr><th>群組</th><th>欄位</th><th>說明</th><th class="num">重要度合計</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>住房率歷史</strong></td>
+      <td class="mono">occupancy_lag_1<br>occupancy_lag_2<br>occupancy_lag_3<br>occupancy_lag_12<br>occupancy_roll3</td>
+      <td>前 1 / 2 / 3 / 12 個月的實際住房率，以及近 3 個月平均</td>
+      <td class="num" style="color:var(--accent);font-weight:700">95.09%</td>
+    </tr>
+    <tr>
+      <td><strong>時間編碼</strong></td>
+      <td class="mono">month<br>month_sin<br>month_cos</td>
+      <td>月份數值，及其正弦／餘弦週期編碼（讓 12 月與 1 月相鄰）</td>
+      <td class="num">2.81%</td>
+    </tr>
+    <tr>
+      <td><strong>前月營運輸入</strong></td>
+      <td class="mono">input_total_rooms<br>input_employees<br>input_avg_price<br>input_domestic_ratio<br>input_international_ratio<br>input_individual_ratio</td>
+      <td>全部取<strong>前一個月</strong>的值。刻意不用預測當月的實際 ADR 與客源比例，避免資料洩漏（metadata 中明列此政策）</td>
+      <td class="num">1.30%</td>
+    </tr>
+    <tr>
+      <td><strong>類別特徵</strong></td>
+      <td class="mono">city<br>star_rating</td>
+      <td>縣市、星等，One-Hot 展開為 24 欄</td>
+      <td class="num">0.80%</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3>特徵重要度：極度集中在住房率自身的慣性</h3>
+<div class="bars">
+  <div class="bar"><span class="lbl">occupancy_lag_1</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">0.6247</span></div>
+  <div class="bar"><span class="lbl">occupancy_roll3</span><span class="track"><span class="fill" style="width:44.8%"></span></span><span class="val">0.2801</span></div>
+  <div class="bar"><span class="lbl">occupancy_lag_12</span><span class="track"><span class="fill" style="width:6.4%"></span></span><span class="val">0.0398</span></div>
+  <div class="bar"><span class="lbl">month</span><span class="track"><span class="fill" style="width:3.3%"></span></span><span class="val">0.0208</span></div>
+  <div class="bar"><span class="lbl">month_sin</span><span class="track"><span class="fill dim" style="width:1.0%"></span></span><span class="val">0.0061</span></div>
+  <div class="bar"><span class="lbl">occupancy_lag_2</span><span class="track"><span class="fill dim" style="width:0.8%"></span></span><span class="val">0.0049</span></div>
+  <div class="bar"><span class="lbl">input_domestic_ratio</span><span class="track"><span class="fill dim" style="width:0.5%"></span></span><span class="val">0.0031</span></div>
+  <div class="bar"><span class="lbl">input_avg_price</span><span class="track"><span class="fill dim" style="width:0.34%"></span></span><span class="val">0.0021</span></div>
+  <div class="bar"><span class="lbl">input_total_rooms</span><span class="track"><span class="fill dim" style="width:0.18%"></span></span><span class="val">0.0011</span></div>
+</div>
+
+<div class="note warn">
+  <div class="t">實務意義：房價輸入幾乎不影響住房率預測</div>
+  <p><code>input_avg_price</code> 重要度僅 <strong>0.0021（排第 10、佔 0.2%）</strong>。把房價輸入拉高一倍，模型預測的住房率幾乎不動，但 RevPAR 與客房收入會等比例翻倍 —— 因為那兩個是純乘法換算，不是模型推論。解讀報表時務必分清。</p>
+</div>
+
+<h2><span class="num">03</span>衍生指標：公式與原料</h2>
+<p class="lead">設 P = 預測住房率(%)、R = 客房數、D = 當月天數、ADR = 使用者設定房價。</p>
+
+<div class="legend">
+  <span class="tag a">A 模型預測</span>
+  <span class="tag">B 預測 × 使用者輸入</span>
+  <span class="tag w">C 與預測無關</span>
+</div>
+
+<div class="scroll">
+<table>
+  <thead><tr><th>類</th><th>畫面指標</th><th>公式</th><th>需要的第二原料</th></tr></thead>
+  <tbody>
+    <tr class="best" style="--x:0"><td><strong>A</strong></td><td><strong>月度住房率</strong></td><td class="mono">GradientBoosting.predict(X)</td><td>—</td></tr>
+    <tr><td>B</td><td>預計售出客房間夜</td><td class="mono">P/100 × R × D</td><td>客房數（使用者輸入）</td></tr>
+    <tr><td>B</td><td>預期月度 RevPAR</td><td class="mono">P/100 × ADR</td><td>房價（使用者輸入）</td></tr>
+    <tr><td>B</td><td>預期月度客房收入</td><td class="mono">P/100 × R × D × ADR</td><td>客房數 <em>與</em> 房價</td></tr>
+    <tr><td>A′</td><td>合理規劃範圍</td><td class="mono">P ± planning_rmse</td><td>回測誤差（h=1 為 ±7.94、h=6 為 ±12.99）</td></tr>
+    <tr><td>A′</td><td>與去年同月相比</td><td class="mono">P − occupancy_lag_12</td><td>歷史實績</td></tr>
+    <tr><td>A′</td><td>🟢🟡🔴 分級與建議</td><td class="mono">P ≥ 75 / P ≥ 55 / 其餘</td><td>門檻常數</td></tr>
+    <tr><td>C</td><td>預期月度 ADR</td><td class="mono">使用者輸入原值</td><td>預設帶入最近一月實際房價</td></tr>
+    <tr><td>C</td><td>歷史同月加權平均</td><td class="mono">Σrooms_used ÷ Σ(R × D) × 100</td><td>純歷史統計</td></tr>
+    <tr><td>C</td><td>前月／去年同月／近 3 月基準</td><td class="mono">直接讀取實績</td><td>純歷史統計</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="note danger">
+  <div class="t">已知隱患：ADR 的規則乘數是未啟用的死碼</div>
+  <p><code>src/predict.py:342-350</code> 有一段 <code>price_factor</code>（平日 0.92／假日 1.12／連假 1.20）。這三個數字是<strong>手打常數</strong>，沒有從資料估計、沒有回測、也不在模型特徵裡。</p>
+  <p>但月度頁呼叫時<strong>完全沒有傳 <code>day_type</code></strong>，一律走預設值「全月常態平均」→ <code>price_factor = 1.0</code> → 調整後房價 == 使用者輸入原值。這段是為相容年度模型介面而留的死碼。</p>
+  <p><strong>風險：</strong>畫面 ADR 讀 <code>avg_price</code> 原值、RevPAR 讀 <code>adjusted_price</code>。目前因係數恆為 1.0 而一致，一旦有人補上 <code>day_type</code> 參數，兩格會立刻對不起來。建議直接移除該段，或將 ADR 改讀 <code>result["adjusted_price"]</code>。</p>
+</div>
+
+<h2><span class="num">04</span>住房率 = 官方「住用率」</h2>
+<p class="lead">模型目標變數就是交通部觀光署月報的「住用率」欄位，中間沒有重新定義。</p>
+
+<div class="formula">
+  住用率 &nbsp;=&nbsp;
+  <span class="frac"><span class="t">客房住用數</span><span class="b">可供住用房間數 × 當月天數</span></span>
+</div>
+
+<p>分母是<strong>房晚數（room-nights）</strong>，不是房間數 —— 這也是它不等於直覺的「住用數 ÷ 客房數」的原因。</p>
+
+<h3>實測驗證（全量 4,832 筆）</h3>
+<pre>住用率  vs  客房住用數 ÷ (客房數 × 當月天數)
+<span class="hl">筆數 4,832    平均絕對差 0.00098 個百分點    最大差 0.005 個百分點
+吻合率（差 &lt; 0.01 個百分點）：100.0%</span>
+
+<span class="c">各年份平均差：2023 → 0.0000   2024 → 0.0000   2025 → 0.0021   2026 → 0.0025</span></pre>
+
+<p>2023–2024 為<strong>完全零誤差</strong>；2025 年起的殘差來自雙語版報表已將住用率四捨五入至小數 2 位，屬報表精度而非計算差異。</p>
+
+<div class="note warn">
+  <div class="t">三個容易踩的資料陷阱</div>
+  <p><strong>1. 單位是小數不是百分比。</strong>原始 Excel 存 <code>0.6190</code>，程式以 <code>if occupancy &lt;= 1: occupancy *= 100</code> 轉換。模型全程使用 0–100 百分點。</p>
+  <p><strong>2. 年度檔的「客房數」是 12 個月加總。</strong><code>hotel_2023.xlsx</code> 中福容淡水漁人碼頭「客房數」為 2376，實際是 198 間 × 12 個月。還原驗證：<code>44736 ÷ (2376/12 × 365) = 0.619012</code>，與檔案中住用率吻合到小數 7 位。直接當房間數用會低估 12 倍。</p>
+  <p><strong>3. 2026-03 起月報改版。</strong>「客房數」更名為「可供住用數 / Rooms」且數值改為房晚數；同時旅館明細不再列縣市。<code>build_monthly_data.py</code> 以 <code>rooms_are_room_nights</code> 旗標除回天數，並用同旅館先前的已知縣市回補。</p>
+</div>
+
+<div class="note info">
+  <div class="t">解讀提醒</div>
+  <p>分母是「<strong>可供</strong>住用房間數」而非登記房間數。旅館整修封樓時分母縮小，住用率可能反而上升。因此高住房率不必然等於生意好 —— 需同時檢視「售出客房間夜」這個絕對量。</p>
+</div>
+
+<h2><span class="num">05</span>模型績效</h2>
+
+<h3>候選模型比較（2023-01~2025-12 訓練 → 2026 上半年時間外測試，n=694）</h3>
+<div class="scroll">
+<table>
+  <thead><tr><th>模型</th><th class="num">MAE</th><th class="num">RMSE</th><th class="num">R²</th><th class="num">Bias</th></tr></thead>
+  <tbody>
+    <tr><td>Baseline（前月住房率）</td><td class="num">7.51</td><td class="num">10.79</td><td class="num">0.7656</td><td class="num">+1.26</td></tr>
+    <tr><td>Seasonal Naive（去年同月）</td><td class="num">7.96</td><td class="num">11.34</td><td class="num">0.7339</td><td class="num">−1.62</td></tr>
+    <tr><td>Ridge</td><td class="num">6.48</td><td class="num">9.39</td><td class="num">0.8241</td><td class="num">−0.05</td></tr>
+    <tr><td>Random Forest</td><td class="num">6.12</td><td class="num">8.82</td><td class="num">0.8447</td><td class="num">+0.16</td></tr>
+    <tr class="best"><td>Gradient Boosting</td><td class="num">6.08</td><td class="num">8.81</td><td class="num">0.8452</td><td class="num">+0.14</td></tr>
+  </tbody>
+</table>
+</div>
+<p>相對「前月住房率」基準，MAE 由 7.51 降至 6.08，<strong>改善 19.0%</strong>；Bias +0.14 表示幾乎無系統性高估或低估。</p>
+
+<h3>固定原點遞迴預測：誤差隨預測距離累積</h3>
+<p>自 2025-12 為原點，遞迴預測 2026 年 1–6 月（每期 n=115），完全不使用預測期間的任何實際值：</p>
+<div class="bars">
+  <div class="bar"><span class="lbl">第 1 個月</span><span class="track"><span class="fill" style="width:46.9%"></span></span><span class="val">MAE 6.07</span></div>
+  <div class="bar"><span class="lbl">第 2 個月</span><span class="track"><span class="fill" style="width:60.9%"></span></span><span class="val">MAE 7.89</span></div>
+  <div class="bar"><span class="lbl">第 3 個月</span><span class="track"><span class="fill" style="width:57.5%"></span></span><span class="val">MAE 7.45</span></div>
+  <div class="bar"><span class="lbl">第 4 個月</span><span class="track"><span class="fill" style="width:52.4%"></span></span><span class="val">MAE 6.78</span></div>
+  <div class="bar"><span class="lbl">第 5 個月</span><span class="track"><span class="fill" style="width:63.2%"></span></span><span class="val">MAE 8.19</span></div>
+  <div class="bar"><span class="lbl">第 6 個月</span><span class="track"><span class="fill" style="width:64.9%"></span></span><span class="val">MAE 8.41</span></div>
+</div>
+<p>整體 MAE 7.46、RMSE 11.23、R² 0.7397。畫面上的「合理規劃範圍」即取各預測距離的<strong>累積最大 RMSE</strong>作為區間半寬
+（h=1 ±7.94 → h=6 ±12.99），確保區間隨預測距離單調放寬，不會出現「愈遠反而愈窄」的誤導。</p>
+
+<h3>假日特徵實驗（未採用）</h3>
+<p>另行測試納入官方行事曆的放假日數與連假個數（<code>src/train_monthly_holiday_experiment.py</code>）：</p>
+<div class="scroll">
+<table>
+  <thead><tr><th>版本</th><th class="num">MAE</th><th class="num">RMSE</th><th class="num">R²</th><th>結論</th></tr></thead>
+  <tbody>
+    <tr class="best"><td>現行模型</td><td class="num">6.08</td><td class="num">8.81</td><td class="num">0.8452</td><td>MAE 較優</td></tr>
+    <tr><td>加入假日特徵</td><td class="num">6.14</td><td class="num">8.75</td><td class="num">0.8471</td><td>RMSE 略優，但選型指標為 MAE</td></tr>
+  </tbody>
+</table>
+</div>
+<p>差距在雜訊範圍內，未通過切換門檻，故正式模型維持不納入。重大活動特徵亦尚未納入。兩者在介面上均以
+<code>disabled</code> 狀態呈現，且<strong>不會以任何人工係數改動住房率</strong>。</p>
+
+<h2><span class="num">06</span>資料流與檔案路徑</h2>
+
+<div class="pipe">
+<span class="step">交通部觀光署</span>　https://admin.taiwan.net.tw/businessinfo/FilePage?a=10425<br>
+<span class="arrow">└─▶</span> <code>src/download_monthly_data.py</code>　<span class="c">// 正則排除 202401-12 等區間彙整檔</span><br>
+<span class="step">原始月報</span>　　<code>data/raw/monthly/YYYYMM.xlsx</code>　<span class="c">// 42 檔：202301 ~ 202606</span><br>
+<span class="arrow">└─▶</span> <code>src/build_monthly_data.py</code>　<span class="c">// 缺月即中斷，不產出有洞的資料集</span><br>
+<span class="step">長格式資料</span>　<code>data/processed/hotel_monthly.csv</code>　<span class="c">// 4,832 筆</span><br>
+<span class="arrow">└─▶</span> <code>src/train_monthly_current.py</code><br>
+<span class="step">正式模型</span>　　<code>models/monthly_model_through_202606.pkl</code><br>
+<span class="arrow">└─▶</span> <code>pages/2_月度預測分析.py</code> ＋ <code>src/predict.py</code>
+</div>
+
+<div class="note info">
+  <div class="t">維護要點</div>
+  <p><strong>下載端：</strong>既有檔案跳過不重抓，但會先用 <code>zipfile</code> 驗證是否為合法 xlsx（官方偶有回傳錯誤頁面），壞檔自動重下。每月更新只需重跑一次下載腳本。</p>
+  <p><strong>建檔端：</strong>會檢查 2023-01 至最新月份之間是否缺檔，缺任一月即拋出 <code>FileNotFoundError</code> 中斷。此為刻意設計 —— lag 特徵一旦遇到缺月會整批變成 NaN。</p>
+  <p><strong>路徑區隔：</strong>年度彙整檔 <code>hotel_2023/2024/2025.xlsx</code> 位於上一層 <code>data/raw/</code>，供年度模型使用，與 <code>monthly/</code> 互不覆蓋。</p>
+</div>
+
+<h2><span class="num">07</span>撰寫報告時的用語建議</h2>
+<div class="scroll">
+<table>
+  <thead><tr><th style="width:44px"></th><th>敘述</th></tr></thead>
+  <tbody>
+    <tr><td style="color:var(--danger);font-size:17px;text-align:center">✕</td><td>「模型預測該月 ADR 為 NT$5,200」</td></tr>
+    <tr><td style="color:var(--accent);font-size:17px;text-align:center">✓</td><td>「ADR NT$5,200 為使用者設定之情境輸入，預設帶入該旅館最近一個月實際房價」</td></tr>
+    <tr><td style="color:var(--danger);font-size:17px;text-align:center">✕</td><td>「模型預測營收為 NT$8,500,000」</td></tr>
+    <tr><td style="color:var(--accent);font-size:17px;text-align:center">✓</td><td>「以模型預測住房率 P，搭配使用者設定之房價與客房數推算，客房收入約 NT$8,500,000」</td></tr>
+    <tr><td style="color:var(--danger);font-size:17px;text-align:center">✕</td><td>「模型準確率 84.5%」</td></tr>
+    <tr><td style="color:var(--accent);font-size:17px;text-align:center">✓</td><td>「次月預測 R² = 0.845、MAE = 6.08 個百分點（時間外測試，n=694）」</td></tr>
+  </tbody>
+</table>
+</div>
+<p>核心原則：<strong>ADR 在本系統中是決策變數，不是被預測變數。</strong>若要建模房價，屬於定價最佳化問題，與住房率預測是兩個不同題目。</p>
+
+<footer>
+  分析對象：<code>models/monthly_model_through_202606.pkl</code>（model_version: monthly-through-202606-v2）<br>
+  數據來源：<code>reports/monthly_model_current_metadata.json</code>、<code>model_results_monthly_current.json</code>、<code>monthly_2026h1_validation.json</code>、<code>feature_importance_monthly_current.csv</code>、<code>monthly_holiday_experiment_results.json</code><br>
+  住用率恆等式驗證為本次針對 <code>data/processed/hotel_monthly.csv</code> 全量 4,832 筆實際執行之結果。<br>
+  產生日期：2026-09-04
+</footer>
+
+</div>
+</body>
+</html>

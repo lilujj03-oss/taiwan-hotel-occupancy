@@ -1,0 +1,200 @@
+﻿{
+  "evaluation_period": "2026-01~2026-06",
+  "training_period": "2023-01~2025-12",
+  "selection_metric": "MAE",
+  "baselines": {
+    "previous_month": {
+      "mae": 7.51,
+      "rmse": 10.79,
+      "r2": 0.7656,
+      "bias": 1.26,
+      "n": 693
+    },
+    "seasonal_naive_previous_year_same_month": {
+      "mae": 7.96,
+      "rmse": 11.34,
+      "r2": 0.7339,
+      "bias": -1.62,
+      "n": 686
+    }
+  },
+  "rolling_one_month": {
+    "base_selected_model": "Gradient Boosting",
+    "holiday_selected_model": "Gradient Boosting",
+    "base_candidates": {
+      "Ridge": {
+        "mae": 6.48,
+        "rmse": 9.39,
+        "r2": 0.8241,
+        "bias": -0.05,
+        "n": 694
+      },
+      "Random Forest": {
+        "mae": 6.12,
+        "rmse": 8.82,
+        "r2": 0.8447,
+        "bias": 0.16,
+        "n": 694
+      },
+      "Gradient Boosting": {
+        "mae": 6.08,
+        "rmse": 8.81,
+        "r2": 0.8452,
+        "bias": 0.14,
+        "n": 694
+      }
+    },
+    "holiday_candidates": {
+      "Ridge": {
+        "mae": 6.64,
+        "rmse": 9.43,
+        "r2": 0.8226,
+        "bias": 0.22,
+        "n": 694
+      },
+      "Random Forest": {
+        "mae": 6.17,
+        "rmse": 8.88,
+        "r2": 0.8427,
+        "bias": 0.21,
+        "n": 694
+      },
+      "Gradient Boosting": {
+        "mae": 6.14,
+        "rmse": 8.75,
+        "r2": 0.8471,
+        "bias": 0.15,
+        "n": 694
+      }
+    }
+  },
+  "fixed_origin_2025_12": {
+    "seasonal_naive": {
+      "mae": 7.96,
+      "rmse": 11.34,
+      "r2": 0.7339,
+      "bias": -1.62,
+      "n": 686
+    },
+    "base_model": {
+      "mae": 7.46,
+      "rmse": 11.23,
+      "r2": 0.7397,
+      "bias": 0.97,
+      "n": 690
+    },
+    "holiday_model": {
+      "mae": 7.53,
+      "rmse": 11.17,
+      "r2": 0.7427,
+      "bias": 0.79,
+      "n": 690
+    },
+    "base_by_month": {
+      "1": {
+        "mae": 6.07,
+        "rmse": 7.94,
+        "r2": 0.8777,
+        "bias": 1.13,
+        "n": 115
+      },
+      "2": {
+        "mae": 7.89,
+        "rmse": 10.1,
+        "r2": 0.7527,
+        "bias": 1.89,
+        "n": 115
+      },
+      "3": {
+        "mae": 7.45,
+        "rmse": 11.98,
+        "r2": 0.7495,
+        "bias": 1.64,
+        "n": 115
+      },
+      "4": {
+        "mae": 6.78,
+        "rmse": 10.93,
+        "r2": 0.7414,
+        "bias": 1.1,
+        "n": 115
+      },
+      "5": {
+        "mae": 8.19,
+        "rmse": 12.66,
+        "r2": 0.6496,
+        "bias": 0.14,
+        "n": 115
+      },
+      "6": {
+        "mae": 8.41,
+        "rmse": 12.99,
+        "r2": 0.6458,
+        "bias": -0.08,
+        "n": 115
+      }
+    },
+    "holiday_by_month": {
+      "1": {
+        "mae": 6.09,
+        "rmse": 8.04,
+        "r2": 0.8744,
+        "bias": 1.28,
+        "n": 115
+      },
+      "2": {
+        "mae": 7.66,
+        "rmse": 9.84,
+        "r2": 0.7656,
+        "bias": 1.68,
+        "n": 115
+      },
+      "3": {
+        "mae": 7.61,
+        "rmse": 11.67,
+        "r2": 0.7623,
+        "bias": 0.2,
+        "n": 115
+      },
+      "4": {
+        "mae": 7.03,
+        "rmse": 10.84,
+        "r2": 0.7455,
+        "bias": -0.51,
+        "n": 115
+      },
+      "5": {
+        "mae": 8.43,
+        "rmse": 12.97,
+        "r2": 0.6322,
+        "bias": 1.99,
+        "n": 115
+      },
+      "6": {
+        "mae": 8.34,
+        "rmse": 12.84,
+        "r2": 0.6538,
+        "bias": 0.11,
+        "n": 115
+      }
+    }
+  },
+  "calendar_features": [
+    "days_in_month",
+    "weekend_days",
+    "day_off_days",
+    "weekday_day_off_days",
+    "makeup_workdays",
+    "long_weekend_count",
+    "long_break_day_count",
+    "longest_break_days",
+    "day_off_ratio",
+    "spring_festival_days",
+    "has_spring_festival",
+    "is_summer_month",
+    "is_year_end_month"
+  ],
+  "adoption_rule": "rolling MAE、fixed-origin MAE 與 fixed-origin RMSE 均須優於基礎模型",
+  "adopt_holiday_model": false,
+  "decision": "假日模型未同時通過三項門檻，維持現行正式模型"
+}
