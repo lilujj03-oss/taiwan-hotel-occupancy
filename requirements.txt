@@ -1,11 +1,14 @@
-pandas>=2.0.0
-numpy>=1.24.0
+# ── 儀表板執行所需（版本鎖定，與訓練模型的環境一致）──
+streamlit==1.63.0
+pandas==3.0.5
+numpy==2.5.2
+scikit-learn==1.9.0
+plotly==7.0.0
+joblib==1.6.0
+
+# ── 資料下載 / 月報解析 / Notebook（執行儀表板本身不需要）──
+openpyxl>=3.1.0
+xlrd>=2.0.1
+requests>=2.31.0
 matplotlib>=3.7.0
 seaborn>=0.12.0
-scikit-learn>=1.3.0
-openpyxl>=3.1.0
-requests>=2.31.0
-streamlit>=1.28.0
-plotly>=5.15.0
-joblib>=1.3.0
-xlrd>=2.0.1
