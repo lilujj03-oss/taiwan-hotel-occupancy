@@ -33,15 +33,20 @@ for year in [2023, 2024, 2025]:
     part2_df = df_raw.iloc[split_idx:].copy()
 
     # 解析各國籍欄位
+    # 只取「個別旅館」列：第 1 欄是旅館名、第 2 欄（類別：國際／一般／小計）為空。
+    # 縣市彙總列（新北市 + 國際／一般／小計）與全台總計列（小計SubTotal 等，
+    # 部分年度標籤落在第 1 欄）都必須排除，否則會 3～5 倍重複加總。
+    BAD_PREFIX = (
+        "小計", "國際", "一般", "總計", "合計", "地區", "旅館",
+        "Data for", "列印日期", "觀光旅館營運", "資料期間", "nan",
+    )
     for idx, row in part2_df.iterrows():
-        first_val = str(row.iloc[0]).strip()
-        # 抓取個別旅館列（排除總計、小計等）
-        if (first_val and first_val not in ["旅館名稱", "地區名稱", "總計", "小計", "國際", "一般", "合計", "nan", ""]
-            and not first_val.startswith("觀光旅館營運")
-            and not first_val.startswith("列印日期")
-            and not first_val.startswith("Data for")):
+        first_val = str(row.iloc[0]).strip().lstrip("*# ")
+        if (first_val
+            and not first_val.startswith(BAD_PREFIX)
+            and pd.isna(row.iloc[1])):
 
-            hname = first_val.lstrip("*# ")
+            hname = first_val.split("\n")[0].strip()
             fit_guests = pd.to_numeric(row.iloc[2], errors="coerce") if len(row) > 2 else 0
             group_guests = pd.to_numeric(row.iloc[3], errors="coerce") if len(row) > 3 else 0
             total_guests = pd.to_numeric(row.iloc[4], errors="coerce") if len(row) > 4 else 0
@@ -55,7 +60,10 @@ for year in [2023, 2024, 2025]:
             malaysia = pd.to_numeric(row.iloc[11], errors="coerce") if len(row) > 11 else 0
             thailand = pd.to_numeric(row.iloc[12], errors="coerce") if len(row) > 12 else 0
             usa = pd.to_numeric(row.iloc[23], errors="coerce") if len(row) > 23 else 0
-            europe = pd.to_numeric(row.iloc[27], errors="coerce") if len(row) > 27 else 0
+            # 歐洲 = 英國(第 26 欄) + 歐洲其他地區(第 27 欄)
+            uk = pd.to_numeric(row.iloc[26], errors="coerce") if len(row) > 26 else 0
+            europe_other = pd.to_numeric(row.iloc[27], errors="coerce") if len(row) > 27 else 0
+            europe = pd.Series([uk, europe_other]).sum(min_count=1)
 
             all_records.append({
                 "年份": year,

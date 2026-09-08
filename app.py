@@ -630,6 +630,7 @@ elif page == "⭐ 星級認證效益分析":
                     labels={"star_rating": "星等評鑑", "occupancy_rate": "住房率 (%)"},
                     template="plotly_dark",
                     color="star_rating",
+                    category_orders={"star_rating": ["卓越五星", "五星級", "四星級", "三星級"]},
                 )
                 style_chart(fig_star_occ, "⭐ 各星等旅館住房率分佈")
                 fig_star_occ.update_layout(showlegend=False)
@@ -672,6 +673,11 @@ elif page == "⭐ 星級認證效益分析":
                 )
                 style_chart(fig_dom, "👥 各星等本國旅客佔比")
                 st.plotly_chart(fig_dom, use_container_width=True)
+                st.caption(
+                    "星等與客源結構**非線性關係**——只有兩端明顯（卓越五星最靠國際客、無星等最靠本國客），"
+                    "中間亂序（四星比三星更國際化、五星比四星更靠本國）。此為簡單平均（每旅館×月一票），"
+                    "domestic_ratio 指住客人次佔比、非人數。"
+                )
 
 
 # ══════════════════════════════════════════════════════════
@@ -805,7 +811,7 @@ elif page == "🌍 住客國籍與客源結構分析":
                 labels={"全台佔比(%)": "全台住客佔比 (%)", "國籍地區": "客源國籍"},
             )
             fig_all_nat.update_traces(texttemplate='%{text:.2f}%', textposition='outside')
-            style_chart(fig_all_nat, "🌍 國際旅客國籍分佈與回流排行圖 (2023–2025 全台總覽)")
+            style_chart(fig_all_nat, "🌍 各客源市場全台住客佔比（2023–2025 三年合計）")
             fig_all_nat.update_layout(height=400)
             st.plotly_chart(fig_all_nat, use_container_width=True)
 
