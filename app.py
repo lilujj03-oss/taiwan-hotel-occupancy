@@ -386,8 +386,22 @@ if page == "📊 整體營運與住房趨勢":
         if {"cluster_type", "avg_price", "revpar", "domestic_ratio"}.issubset(df.columns):
             col_cl1, col_cl2 = st.columns(2)
             with col_cl1:
-                cl_df = df.groupby("cluster_type")[["avg_price", "revpar"]].mean().reset_index()
-                cl_df = cl_df.rename(columns={"avg_price": "平均房價 ADR", "revpar": "RevPAR"})
+                # 加權口徑（Σ客房營收 ÷ Σ已售／可售房晚），與簡報第 9 頁一致
+                _cl = df.copy()
+                _cl_md = pd.to_datetime(
+                    dict(year=_cl["year"], month=_cl["month"], day=1), errors="coerce"
+                )
+                _cl["_avail"] = pd.to_numeric(_cl["total_rooms"], errors="coerce") * _cl_md.dt.days_in_month
+                _cl["_sold"] = pd.to_numeric(_cl["rooms_used"], errors="coerce")
+                _cl["_rev"] = pd.to_numeric(_cl["room_revenue"], errors="coerce")
+                _cl_g = _cl.groupby("cluster_type").agg(
+                    _avail=("_avail", "sum"), _sold=("_sold", "sum"), _rev=("_rev", "sum")
+                )
+                cl_df = pd.DataFrame({
+                    "cluster_type": _cl_g.index,
+                    "平均房價 ADR": _cl_g["_rev"] / _cl_g["_sold"],
+                    "RevPAR": _cl_g["_rev"] / _cl_g["_avail"],
+                }).reset_index(drop=True)
                 fig_cl_rev = px.bar(
                     cl_df, x="cluster_type", y=["平均房價 ADR", "RevPAR"],
                     barmode="group",
@@ -395,7 +409,7 @@ if page == "📊 整體營運與住房趨勢":
                     template="plotly_dark",
                     color_discrete_map={"平均房價 ADR": "#38bdf8", "RevPAR": "#22c55e"},
                 )
-                style_chart(fig_cl_rev, "🏢 聚落平均房價與 RevPAR 對比")
+                style_chart(fig_cl_rev, "🏢 聚落 ADR 與 RevPAR 對比（加權口徑）")
                 st.plotly_chart(fig_cl_rev, use_container_width=True)
             with col_cl2:
                 cl_dom = df.groupby("cluster_type")["domestic_ratio"].mean().reset_index()
@@ -413,7 +427,7 @@ if page == "📊 整體營運與住房趨勢":
             resort_rev_median = float(df.loc[df["cluster_type"] == "🏖️ 風景度假聚落", "revpar"].median())
             urban_rev_median = float(df.loc[df["cluster_type"] == "🏢 都會商務聚落", "revpar"].median())
             st.caption(
-                "度假聚落**平均** ADR／RevPAR 高於都會聚落，因為那 8 個縣（宜蘭、花蓮、南投、屏東、台東、"
+                "度假聚落**加權** ADR／RevPAR（Σ客房營收÷Σ房晚）高於都會聚落，因為那 8 個縣（宜蘭、花蓮、南投、屏東、台東、"
                 "澎湖、金門、嘉義縣）有日月潭、太魯閣、墾丁等目的地型度假旅館。但這是被少數頂級度假村"
                 f"（涵碧樓、漢來日月行館…）拉高的：度假聚落 RevPAR 中位數約 NT${resort_rev_median:,.0f}、"
                 f"都會聚落約 NT${urban_rev_median:,.0f}，**用中位數看兩者相近**。都會聚落住房率與國際客佔比則明顯較高。"
