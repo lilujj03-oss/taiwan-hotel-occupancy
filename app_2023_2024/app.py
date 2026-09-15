@@ -14,11 +14,11 @@ from pathlib import Path
 import sys
 
 # 加入 src 路徑
-sys.path.insert(0, str(Path(__file__).parent / "src"))
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 # ── 頁面設定 ────────────────────────────────────────────
 st.set_page_config(
-    page_title="台灣觀光旅館住房率分析與預測",
+    page_title="台灣觀光旅館住房率分析與預測（2023-2024訓練 2025測試）",
     page_icon="🏨",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -127,10 +127,10 @@ div[data-testid="stSidebar"] {
 </style>
 """, unsafe_allow_html=True)
 
-PROCESSED_DIR = Path(__file__).parent / "data" / "processed"
-MODELS_DIR = Path(__file__).parent / "models"
-REPORTS_DIR = Path(__file__).parent / "reports"
-MONTHLY_MODEL_PATH = MODELS_DIR / "monthly_model_through_202606.pkl"
+PROCESSED_DIR = Path(__file__).parent.parent / "data" / "processed"
+MODELS_DIR = Path(__file__).parent.parent / "models"
+REPORTS_DIR = Path(__file__).parent.parent / "reports"
+MONTHLY_MODEL_PATH = MODELS_DIR / "monthly_model_3way.pkl"
 
 
 TITLE_COLOR = "#FEFCE8"  # 圖表標題：淺黃白色
@@ -240,12 +240,18 @@ with st.sidebar:
     st.markdown("中華民國交通部觀光署\n觀光旅館營運統計\n（2023–2025 月度資料）")
     st.markdown("---")
     st.markdown("**🤖 機器學習模型**")
-    st.markdown("• 月度 Gradient Boosting\n• 2023-01～2026-06 正式訓練\n• 預測自 2026-07 起")
+    st.markdown(
+        "• 月度 Gradient Boosting\n"
+        "• 訓練 2023-01～2024-12、驗證選模 2025\n"
+        "• 選定後以 2023-01～2025-12 全量重訓\n"
+        "• 2026 上半年盲測（只用一次）\n"
+        "• 預測自 2026-07 起"
+    )
 
 # ── 標題 ─────────────────────────────────────────────────
 st.markdown("""
 <div class="main-header">
-    <h1>🏨 台灣觀光旅館住房率分析與預測 2023~2025訓練</h1>
+    <h1>🏨 台灣觀光旅館住房率分析與預測 2023-2024訓練 2025測試</h1>
     <p>兼論星級認證與住房率之關聯 ｜ 2023–2025 年觀光旅館營運統計 ｜ 機器學習預測</p>
 </div>
 """, unsafe_allow_html=True)
@@ -980,7 +986,7 @@ elif page == "🔍 影響因素與特徵解析":
             st.caption("將旅館-月資料依客房數分成 6 等分，每組取平均住房率。")
 
         # 特徵重要性排行
-        fi_path = REPORTS_DIR / "feature_importance_monthly_current.csv"
+        fi_path = REPORTS_DIR / "feature_importance_monthly_3way.csv"
         if fi_path.exists():
             fi = pd.read_csv(fi_path).head(12)
             fig_fi = px.bar(
@@ -1002,17 +1008,20 @@ elif page == "🔍 影響因素與特徵解析":
             )
 
         # 模型評估排行榜
-        results_path = REPORTS_DIR / "model_results_monthly_current.json"
+        results_path = REPORTS_DIR / "model_results_monthly_3way.json"
         if results_path.exists():
             import json
             with open(results_path, encoding="utf-8") as f:
                 res_data = json.load(f)
-            res_df = pd.DataFrame(res_data).T
-            st.subheader("📋 2026 上半年時間外測試表現")
-            st.dataframe(res_df.style.format("{:.2f}"), use_container_width=True)
+            st.subheader("📋 候選模型比較（2025 驗證集）與最終盲測表現")
+            val_df = pd.DataFrame(res_data["validation_selection"]).T
+            st.dataframe(val_df.style.format("{:.2f}"), use_container_width=True)
+            test_df = pd.DataFrame(res_data["final_test"]).T
+            st.markdown("**2026 上半年盲測（只用一次，選模階段完全未參與）**")
+            st.dataframe(test_df.style.format("{:.2f}"), use_container_width=True)
             st.caption(
-                "此表為 2026 年 1–6 月的時間外測試（模型僅用 2023-01～2025-12 訓練），"
-                "與「月度預測分析」頁的驗證數字為同一份結果，並非另一次獨立測試。"
+                "候選模型比較全程只用 2025 驗證集；選定 Gradient Boosting 後以 2023–2025 全量重新訓練，"
+                "再用 2026 年 1–6 月做唯一一次盲測，與「月度預測分析」頁的驗證數字為同一份結果。"
             )
 
 

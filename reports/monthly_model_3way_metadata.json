@@ -1,0 +1,27 @@
+{
+  "train_start": "2023-01",
+  "train_end": "2024-12",
+  "val_start": "2025-01",
+  "val_end": "2025-12",
+  "test_start": "2026-01",
+  "test_end": "2026-06",
+  "train_rows": 2748,
+  "val_rows": 1390,
+  "test_rows": 694,
+  "refit_rows": 4138,
+  "production_rows": 4832,
+  "selected_model": "Gradient Boosting",
+  "gb_hyperparams": {
+    "n_estimators": 250,
+    "max_depth": 3,
+    "learning_rate": 0.03
+  },
+  "model_version": "monthly-3way-v1",
+  "data_start": "2023-01",
+  "data_end": "2026-06",
+  "holdout_start": "2026-01",
+  "holdout_end": "2026-06",
+  "hotel_count": 125,
+  "test_input_policy": "前月已知營運欄位，不使用預測當月實際 ADR 或旅客比例",
+  "split_note": "訓練 2023-2024（選模不碰測試集）／驗證選模 2025／測試 2026上半年（只用一次）"
+}

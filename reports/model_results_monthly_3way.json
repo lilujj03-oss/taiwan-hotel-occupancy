@@ -1,0 +1,48 @@
+{
+  "validation_selection": {
+    "Ridge": {
+      "mae": 6.13,
+      "rmse": 8.37,
+      "r2": 0.8494,
+      "bias": -0.64,
+      "n": 1390
+    },
+    "Random Forest": {
+      "mae": 5.97,
+      "rmse": 8.03,
+      "r2": 0.8613,
+      "bias": -0.83,
+      "n": 1390
+    },
+    "Gradient Boosting": {
+      "mae": 5.94,
+      "rmse": 8.02,
+      "r2": 0.8618,
+      "bias": -0.67,
+      "n": 1390
+    },
+    "Baseline (前月住房率)": {
+      "mae": 7.02,
+      "rmse": 9.48,
+      "r2": 0.8063,
+      "bias": -0.19,
+      "n": 1385
+    }
+  },
+  "final_test": {
+    "Gradient Boosting": {
+      "mae": 6.07,
+      "rmse": 8.81,
+      "r2": 0.8451,
+      "bias": 0.17,
+      "n": 694
+    },
+    "Baseline (前月住房率)": {
+      "mae": 7.51,
+      "rmse": 10.79,
+      "r2": 0.7656,
+      "bias": 1.26,
+      "n": 693
+    }
+  }
+}

@@ -1,0 +1,225 @@
+{"kind":"deck","id":"pr/21hzl0","name":"Deck"}
+{"kind":"layout","layoutId":"a9d8f68e-a4dc-453e-8f72-05c07ace9d50","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"08af2467-767e-45f6-8e3f-2ed1dd3f05df","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/k49c8r","slide":1,"title":"口試簡報｜5 分鐘精華版","textShapes":8}
+{"kind":"shape","id":"sh/it0bitwn","slide":1,"bbox":[0,0,750,720]}
+{"kind":"shape","id":"sh/ju9cbyd8","slide":1,"bbox":[64,110,7,100]}
+{"kind":"textbox","id":"sh/wrytg3eh","slide":1,"text":"口試簡報｜5 分鐘精華版","textPreview":"口試簡報｜5 分鐘精華版","textChars":12,"textLines":1,"bbox":[92,105,400,26]}
+{"kind":"textbox","id":"sh/xsru9ov2","slide":1,"text":"台灣星級觀光旅館\n月住房率預測與影響因素分析","textPreview":"台灣星級觀光旅館 | 月住房率預測與影響因素分析","textChars":22,"textLines":2,"bbox":[90,135,620,140]}
+{"kind":"textbox","id":"sh/apgbetwr","slide":1,"text":"基於機器學習之營運慣性解析與 2026 上半年時間外驗證","textPreview":"基於機器學習之營運慣性解析與 2026 上半年時間外驗證","textChars":28,"textLines":1,"bbox":[92,285,600,36]}
+{"kind":"shape","id":"sh/vqpc7ydw","slide":1,"bbox":[90,350,580,2]}
+{"kind":"shape","id":"sh/gn2dsne1","slide":1,"bbox":[90,375,580,180]}
+{"kind":"textbox","id":"sh/hobulsvm","slide":1,"text":"口試研究生 / 報告人：口試學生","textPreview":"口試研究生 / 報告人：口試學生","textChars":16,"textLines":1,"bbox":[120,395,520,32]}
+{"kind":"textbox","id":"sh/dw7y1476","slide":1,"text":"指導教授：指導教授 博士","textPreview":"指導教授：指導教授 博士","textChars":12,"textLines":1,"bbox":[120,435,520,30]}
+{"kind":"textbox","id":"sh/svyxsz61","slide":1,"text":"資料來源：交通部觀光署《觀光旅館營運統計》（2023-01～2026-06）","textPreview":"資料來源：交通部觀光署《觀光旅館營運統計》（2023-01～2026-06）","textChars":38,"textLines":1,"bbox":[120,472,520,30]}
+{"kind":"textbox","id":"sh/rupgzupg","slide":1,"text":"簡報時長：共 8 頁｜預計 310 秒（5 分鐘）","textPreview":"簡報時長：共 8 頁｜預計 310 秒（5 分鐘）","textChars":25,"textLines":1,"bbox":[120,508,520,28]}
+{"kind":"textbox","id":"sh/qtgfqpov","slide":1,"text":"2026.09","textPreview":"2026.09","textChars":7,"textLines":1,"bbox":[92,640,200,28]}
+{"kind":"image","id":"im/oz2p87yl","slide":1,"name":"","alt":"台灣觀光旅館分析封面概念圖","bbox":[0,0,1280,720]}
+{"kind":"notes","id":"nt/k49c8r","slide":1,"text":"【第 1 頁講稿｜建議時間：15 秒】\n「各位口試委員、指導教授好，我的論文題目是『台灣星級觀光旅館月住房率預測與影響因素分析』，報告人是 [姓名]。\n本研究主要資料來自交通部觀光署官方觀光旅館營運統計，透過機器學習解析疫後住房率走勢與關鍵驅動因素。以下向各位委員進行口試精華報告。」"}
+{"kind":"slide","id":"sl/hn1nz7","slide":2,"title":"動機與問題定義  |  建議時間：35s","textShapes":15}
+{"kind":"shape","id":"sh/07mtcfep","slide":2,"bbox":[56,38,6,56]}
+{"kind":"textbox","id":"sh/z6dsjadk","slide":2,"text":"動機與問題定義  |  建議時間：35s","textPreview":"動機與問題定義  |  建議時間：35s","textChars":20,"textLines":1,"bbox":[76,36,600,24]}
+{"kind":"textbox","id":"sh/e54ba5wz","slide":2,"text":"住房率是旅館收益管理核心；空房是回不來的機會成本","textPreview":"住房率是旅館收益管理核心；空房是回不來的機會成本","textChars":24,"textLines":1,"bbox":[76,58,1000,52]}
+{"kind":"shape","id":"sh/9cfap4vm","slide":2,"bbox":[56,666,1168,1]}
+{"kind":"textbox","id":"sh/ob6tgze1","slide":2,"text":"資料來源：交通部觀光署《觀光旅館營運統計》（2023-01～2026-06）","textPreview":"資料來源：交通部觀光署《觀光旅館營運統計》（2023-01～2026-06）","textChars":38,"textLines":1,"bbox":[58,674,900,20]}
+{"kind":"textbox","id":"sh/naxsnudg","slide":2,"text":"Slide 02 / 08  (35s)","textPreview":"Slide 02 / 08  (35s)","textChars":20,"textLines":1,"bbox":[1000,671,224,24]}
+{"kind":"shape","id":"sh/m94bepwv","slide":2,"bbox":[56,150,560,480]}
+{"kind":"shape","id":"sh/pgbad0v2","slide":2,"bbox":[86,178,6,32]}
+{"kind":"textbox","id":"sh/4f294vex","slide":2,"text":"產業動機：客房的不可儲存特性","textPreview":"產業動機：客房的不可儲存特性","textChars":14,"textLines":1,"bbox":[102,175,480,36]}
+{"kind":"textbox","id":"sh/upc76d8f","slide":2,"text":"空房是不可逆的沉沒成本與機會損失","textPreview":"空房是不可逆的沉沒成本與機會損失","textChars":16,"textLines":1,"bbox":[86,230,500,36]}
+{"kind":"textbox","id":"sh/vq58zip0","slide":2,"text":"旅館客房具有極強的『不可儲存性（Perishability）』：今晚未售出的房間，其收益機會永久消失，且無法透過明日延期銷售補回。","textPreview":"旅館客房具有極強的『不可儲存性（Perishability）』：今晚未售出的房間，其收益機會永久消失，且無法透過明日延期銷售補回。","textChars":65,"textLines":1,"bbox":[86,270,500,80]}
+{"kind":"shape","id":"sh/grep83ql","slide":2,"bbox":[86,365,500,1]}
+{"kind":"textbox","id":"sh/hsnq1876","slide":2,"text":"收益管理（Revenue Management）核心基石","textPreview":"收益管理（Revenue Management）核心基石","textChars":28,"textLines":1,"bbox":[86,385,500,34]}
+{"kind":"textbox","id":"sh/itw7ad8r","slide":2,"text":"住房率是動態定價、排班人力、耗材採購與行銷通路配額的首要先導指標；準確掌握住房率，才能最大化每房產能收益（RevPAR）。","textPreview":"住房率是動態定價、排班人力、耗材採購與行銷通路配額的首要先導指標；準確掌握住房率，才能最大化每房產能收益（RevPAR）。","textChars":61,"textLines":1,"bbox":[86,425,500,80]}
+{"kind":"shape","id":"sh/3e583ipc","slide":2,"bbox":[86,520,500,85]}
+{"kind":"textbox","id":"sh/4fe9cnqh","slide":2,"text":"決策價值：為經理人爭取 30 天之促銷與排班前置期","textPreview":"決策價值：為經理人爭取 30 天之促銷與排班前置期","textChars":25,"textLines":1,"bbox":[106,535,460,54]}
+{"kind":"shape","id":"sh/5gnq5s72","slide":2,"bbox":[646,150,578,480]}
+{"kind":"shape","id":"sh/qhgrex8n","slide":2,"bbox":[676,178,6,32]}
+{"kind":"textbox","id":"sh/rip872p8","slide":2,"text":"研究問題定義（Problem Formulation）","textPreview":"研究問題定義（Problem Formulation）","textChars":27,"textLines":1,"bbox":[692,175,490,36]}
+{"kind":"textbox","id":"sh/nmpov25g","slide":2,"text":"核心研究問題：","textPreview":"核心研究問題：","textChars":7,"textLines":1,"bbox":[676,230,490,32]}
+{"kind":"textbox","id":"sh/2lg7mxov","slide":2,"text":"「能否利用前面月份的已知營運資料，\n預測特定旅館下個月的客房住房率？」","textPreview":"「能否利用前面月份的已知營運資料， | 預測特定旅館下個月的客房住房率？」","textChars":35,"textLines":2,"bbox":[676,268,510,72]}
+{"kind":"shape","id":"sh/por6xsnm","slide":2,"bbox":[676,355,518,1]}
+{"kind":"textbox","id":"sh/onypo7m1","slide":2,"text":"預測情境設定：","textPreview":"預測情境設定：","textChars":7,"textLines":1,"bbox":[676,375,490,32]}
+{"kind":"textbox","id":"sh/fipori54","slide":2,"text":"輸入資訊 Xt-k：歷史滯後住房率、短期均值、月份季節性、旅館屬性（星級/縣市/客房數/旅客結構）。\n目標變數 Yt：目標旅館在第 t 個月的實際住用率（0%～100%）。\n預測距離（Horizon）：以『提前一個月』日常預警為主；兼測多月情境。\n嚴謹邊界：模型提供營運量化預警，非定價因果承諾或每日PMS控房。","textPreview":"輸入資訊 Xt-k：歷史滯後住房率、短期均值、月份季節性、旅館屬性（星級/縣市/客房數/旅客結構）。 | 目標變數 Yt：目標旅館在第 t 個月的實際住用率（0%～100%）。 | 預測距離（Horizon）：以『提前一個月』日常預警為主；兼測多月情境。 | 嚴謹邊界：模型...","textChars":156,"textLines":4,"bbox":[676,412,518,195]}
+{"kind":"notes","id":"nt/hn1nz7","slide":2,"text":"【第 2 頁講稿｜建議時間：35 秒】\n「進入研究動機與問題定義。\n旅館客房具有極強的『不可儲存性』，今晚只要空出一間房，其營收機會便永久歸零，空房是回不來的機會成本。\n因此，住房率正是整個旅館收益管理、人力排班與促銷佈局的核心先導指標。\n本研究定義的核心問題是：能否利用前面月份已知的營運資料，準確預測某間旅館下個月的客房住房率？\n透過提前一個月的量化預警，為經營團隊爭取寶貴的決策調整前置期。」"}
+{"kind":"slide","id":"sl/8ur57j","slide":3,"title":"資料範疇與結構  |  建議時間：40s","textShapes":26}
+{"kind":"shape","id":"sh/nut0nih8","slide":3,"bbox":[56,38,6,56]}
+{"kind":"textbox","id":"sh/ov2hg3yt","slide":3,"text":"資料範疇與結構  |  建議時間：40s","textPreview":"資料範疇與結構  |  建議時間：40s","textChars":20,"textLines":1,"bbox":[76,36,600,24]}
+{"kind":"textbox","id":"sh/pwbip8fe","slide":3,"text":"期間 2023-01～2026-06，4,832 筆官方月度面板資料","textPreview":"期間 2023-01～2026-06，4,832 筆官方月度面板資料","textChars":34,"textLines":1,"bbox":[76,58,1000,52]}
+{"kind":"shape","id":"sh/e50zatgr","slide":3,"bbox":[56,666,1168,1]}
+{"kind":"textbox","id":"sh/f690jyhc","slide":3,"text":"資料來源：交通部觀光署《觀光旅館營運統計》（2023-01～2026-06）","textPreview":"資料來源：交通部觀光署《觀光旅館營運統計》（2023-01～2026-06）","textChars":38,"textLines":1,"bbox":[58,674,900,20]}
+{"kind":"textbox","id":"sh/0rihc3yh","slide":3,"text":"Slide 03 / 08  (40s)","textPreview":"Slide 03 / 08  (40s)","textChars":20,"textLines":1,"bbox":[1000,671,224,24]}
+{"kind":"shape","id":"sh/1sril8z2","slide":3,"bbox":[56,145,274,115]}
+{"kind":"textbox","id":"sh/y14zmxgv","slide":3,"text":"42 個月","textPreview":"42 個月","textChars":5,"textLines":1,"bbox":[76,160,234,58]}
+{"kind":"shape","id":"sh/z2d0v2xg","slide":3,"bbox":[76,222,80,4]}
+{"kind":"textbox","id":"sh/jq10vm90","slide":3,"text":"2023-01～2026-06 時間跨度","textPreview":"2023-01～2026-06 時間跨度","textChars":20,"textLines":1,"bbox":[76,232,234,56]}
+{"kind":"shape","id":"sh/ipsj2hsf","slide":3,"bbox":[354,145,274,115]}
+{"kind":"textbox","id":"sh/5sj2xwr6","slide":3,"text":"4,832 筆","textPreview":"4,832 筆","textChars":7,"textLines":1,"bbox":[374,160,234,58]}
+{"kind":"shape","id":"sh/kra14ral","slide":3,"bbox":[374,222,80,4]}
+{"kind":"textbox","id":"sh/7u1kz69w","slide":3,"text":"飯店 × 月份面板紀錄","textPreview":"飯店 × 月份面板紀錄","textChars":11,"textLines":1,"bbox":[374,232,234,56]}
+{"kind":"shape","id":"sh/6tsj61sr","slide":3,"bbox":[652,145,274,115]}
+{"kind":"textbox","id":"sh/tg321gr2","slide":3,"text":"125 間","textPreview":"125 間","textChars":5,"textLines":1,"bbox":[672,160,234,58]}
+{"kind":"shape","id":"sh/sfa18bah","slide":3,"bbox":[672,222,80,4]}
+{"kind":"textbox","id":"sh/filk3698","slide":3,"text":"資料涵蓋之觀光旅館家數","textPreview":"資料涵蓋之觀光旅館家數","textChars":11,"textLines":1,"bbox":[672,232,234,56]}
+{"kind":"shape","id":"sh/uhcja1sn","slide":3,"bbox":[950,145,274,115]}
+{"kind":"textbox","id":"sh/qdw325cv","slide":3,"text":"694 筆","textPreview":"694 筆","textChars":5,"textLines":1,"bbox":[970,160,234,58]}
+{"kind":"shape","id":"sh/be54batg","slide":3,"bbox":[970,222,80,4]}
+{"kind":"textbox","id":"sh/cfy54fu1","slide":3,"text":"2026 上半年時間外驗證","textPreview":"2026 上半年時間外驗證","textChars":13,"textLines":1,"bbox":[970,232,234,56]}
+{"kind":"shape","id":"sh/dg7mdkbm","slide":3,"bbox":[56,280,560,350]}
+{"kind":"textbox","id":"sh/29w3y5cz","slide":3,"text":"資料層級與關鍵欄位","textPreview":"資料層級與關鍵欄位","textChars":9,"textLines":1,"bbox":[84,300,500,34]}
+{"kind":"textbox","id":"sh/3a547at4","slide":3,"text":"層級：飯店 × 月份（Panel Data，非單筆訂房個資）","textPreview":"層級：飯店 × 月份（Panel Data，非單筆訂房個資）","textChars":30,"textLines":1,"bbox":[84,338,500,28]}
+{"kind":"shape","id":"sh/obel0fup","slide":3,"bbox":[84,375,90,26]}
+{"kind":"textbox","id":"sh/pcnm90ba","slide":3,"text":"目標變數","textPreview":"目標變數","textChars":4,"textLines":1,"bbox":[84,375,90,26]}
+{"kind":"textbox","id":"sh/m5gnaps3","slide":3,"text":"月客房住用率（住房率 %）","textPreview":"月客房住用率（住房率 %）","textChars":13,"textLines":1,"bbox":[185,375,400,26]}
+{"kind":"shape","id":"sh/n6p4juto","slide":3,"bbox":[84,410,90,26]}
+{"kind":"textbox","id":"sh/x0b69ovq","slide":3,"text":"營運指標","textPreview":"營運指標","textChars":4,"textLines":1,"bbox":[84,410,90,26]}
+{"kind":"textbox","id":"sh/wz2p0je5","slide":3,"text":"平均房價 ADR (NT$)、客房總營收、RevPAR","textPreview":"平均房價 ADR (NT$)、客房總營收、RevPAR","textChars":27,"textLines":1,"bbox":[185,410,400,26]}
+{"kind":"shape","id":"sh/vyto7ydk","slide":3,"bbox":[84,445,90,26]}
+{"kind":"textbox","id":"sh/ad07ytwz","slide":3,"text":"規模產能","textPreview":"規模產能","textChars":4,"textLines":1,"bbox":[84,445,90,26]}
+{"kind":"textbox","id":"sh/9cr65ovu","slide":3,"text":"供出租客房數、員工總人數","textPreview":"供出租客房數、員工總人數","textChars":12,"textLines":1,"bbox":[185,445,400,26]}
+{"kind":"shape","id":"sh/8bipwje9","slide":3,"bbox":[84,480,90,26]}
+{"kind":"textbox","id":"sh/na9o3edo","slide":3,"text":"客源結構","textPreview":"客源結構","textChars":4,"textLines":1,"bbox":[84,480,90,26]}
+{"kind":"textbox","id":"sh/m907u9w3","slide":3,"text":"本國客 / 國際客占比、散客 / 團體占比","textPreview":"本國客 / 國際客占比、散客 / 團體占比","textChars":21,"textLines":1,"bbox":[185,480,400,26]}
+{"kind":"shape","id":"sh/t8vqh8vy","slide":3,"bbox":[84,515,90,26]}
+{"kind":"textbox","id":"sh/s7mp8nud","slide":3,"text":"分類屬性","textPreview":"分類屬性","textChars":4,"textLines":1,"bbox":[84,515,90,26]}
+{"kind":"textbox","id":"sh/0bax8ne9","slide":3,"text":"星等評鑑（3星/4星/5星/未評鑑）、所在縣市、都會/度假","textPreview":"星等評鑑（3星/4星/5星/未評鑑）、所在縣市、都會/度假","textChars":29,"textLines":1,"bbox":[185,515,400,26]}
+{"kind":"shape","id":"sh/1cjy18vu","slide":3,"bbox":[646,280,578,350]}
+{"kind":"textbox","id":"sh/e98f6dw3","slide":3,"text":"資料嚴謹度與清理亮點","textPreview":"資料嚴謹度與清理亮點","textChars":10,"textLines":1,"bbox":[674,300,510,34]}
+{"kind":"textbox","id":"sh/za1gzido","slide":3,"text":"需求體制一致性：研究刻意限定 2023 年起，排除疫前陸客團體大潮（2015年418萬人次→2023年僅22萬）與疫情極端期，確保模型學習疫後自由行體制。\n官方統計除錯更正：官方月報國籍統計原誤含縣市「國際/一般/小計」彙總列，導致人次 3~5 倍重複計算；經重構清洗後，還原三年住客人次穩定在 1,140~1,180 萬人次。\n誠實界定邊界：資料為飯店月度彙總，本質上無法進行單筆訂單取消分析或個人行為研究，但足以支持巨觀趨勢與月度預測。","textPreview":"需求體制一致性：研究刻意限定 2023 年起，排除疫前陸客團體大潮（2015年418萬人次→2023年僅22萬）與疫情極端期，確保模型學習疫後自由行體制。 | 官方統計除錯更正：官方月報國籍統計原誤含縣市「國際/一般/小計」彙總列，導致人次 3~5 倍重複計算；經重構清洗後...","textChars":220,"textLines":3,"bbox":[674,348,520,265]}
+{"kind":"notes","id":"nt/8ur57j","slide":3,"text":"【第 3 頁講稿｜建議時間：40 秒】\n「在資料來源方面，本專題採用交通部觀光署 2023 年 1 月至 2026 年 6 月的官方營運統計，涵蓋 42 個月、全台 125 間觀光旅館，共計 4,832 筆月度紀錄。\n資料層級為『飯店 × 月份』的面板資料。\n關鍵欄位涵蓋：住房率、房價 ADR、客房數、員工數、旅客國籍與散團結構、星級評鑑以及所在縣市。\n我們特別限定自 2023 年起算，確保疫後新常態的需求體制一致性；並在資料清理階段修正了官方彙總列重複計算的解析陷阱，確認資料具備高度可信度。」"}
+{"kind":"slide","id":"sl/ysolrn","slide":4,"title":"探索性資料分析（EDA）  |  建議時間：55s","textShapes":10}
+{"kind":"shape","id":"sh/zadkfilo","slide":4,"bbox":[56,38,6,56]}
+{"kind":"textbox","id":"sh/0b6lo329","slide":4,"text":"探索性資料分析（EDA）  |  建議時間：55s","textPreview":"探索性資料分析（EDA）  |  建議時間：55s","textChars":25,"textLines":1,"bbox":[76,36,600,24]}
+{"kind":"textbox","id":"sh/1cf2h83e","slide":4,"text":"重點發現：全台逐年回升（量增復甦）與強烈季節星級差異","textPreview":"重點發現：全台逐年回升（量增復甦）與強烈季節星級差異","textChars":26,"textLines":1,"bbox":[76,58,1000,52]}
+{"kind":"shape","id":"sh/mxo3qdkz","slide":4,"bbox":[56,666,1168,1]}
+{"kind":"textbox","id":"sh/nyx4ji1k","slide":4,"text":"資料來源：交通部觀光署《觀光旅館營運統計》（2023-01～2026-06）","textPreview":"資料來源：交通部觀光署《觀光旅館營運統計》（2023-01～2026-06）","textChars":38,"textLines":1,"bbox":[58,674,900,20]}
+{"kind":"textbox","id":"sh/oz6lsn25","slide":4,"text":"Slide 04 / 08  (55s)","textPreview":"Slide 04 / 08  (55s)","textChars":20,"textLines":1,"bbox":[1000,671,224,24]}
+{"kind":"shape","id":"sh/90fmlsjq","slide":4,"bbox":[56,145,560,485]}
+{"kind":"textbox","id":"sh/2hk3etkv","slide":4,"text":"① 2023→2025 全台住房率逐年回升（量增復甦）","textPreview":"① 2023→2025 全台住房率逐年回升（量增復甦）","textChars":27,"textLines":1,"bbox":[76,165,520,32]}
+{"kind":"shape","id":"sh/ze9szq1w","slide":4,"bbox":[76,475,520,135]}
+{"kind":"textbox","id":"sh/ed0bq5kb","slide":4,"text":"數據真相：成長來自『量』而非『價』","textPreview":"數據真相：成長來自『量』而非『價』","textChars":17,"textLines":1,"bbox":[96,490,480,26]}
+{"kind":"textbox","id":"sh/1gra10j2","slide":4,"text":"以 2023=100 指數化觀察：2025 年住房率指數達 105.6（+5.6%），但 ADR 房價指數僅 99.4（微跌 0.7%）。這證實 2025 的復甦主要由客房銷售量推動，非漲價效應。","textPreview":"以 2023=100 指數化觀察：2025 年住房率指數達 105.6（+5.6%），但 ADR 房價指數僅 99.4（微跌 0.7%）。這證實 2025 的復甦主要由客房銷售量推動，非漲價效應。","textChars":98,"textLines":1,"bbox":[96,520,480,75]}
+{"kind":"shape","id":"sh/0fitsv2h","slide":4,"bbox":[646,145,578,485]}
+{"kind":"textbox","id":"sh/rq9svq10","slide":4,"text":"② 明顯季節性（暑假/跨年高峰）＋ 星級 RevPAR 階梯","textPreview":"② 明顯季節性（暑假/跨年高峰）＋ 星級 RevPAR 階梯","textChars":30,"textLines":1,"bbox":[666,165,540,32]}
+{"kind":"shape","id":"sh/dcrax0jq","slide":4,"bbox":[666,475,538,135]}
+{"kind":"textbox","id":"sh/critov2l","slide":4,"text":"星級階梯：五星 RevPAR 為三星之 2.3 倍","textPreview":"星級階梯：五星 RevPAR 為三星之 2.3 倍","textChars":25,"textLines":1,"bbox":[686,490,498,26]}
+{"kind":"textbox","id":"sh/3mpsr61o","slide":4,"text":"五星級加權 RevPAR 達 NT$3,501（四星 2,074、三星 1,530）；都會型全年住房率高出約 13.3 pp，兩類旅館共同在 7~8 月暑假及 12 月聖誕跨年見頂（跨年都會衝至 70.8%）。","textPreview":"五星級加權 RevPAR 達 NT$3,501（四星 2,074、三星 1,530）；都會型全年住房率高出約 13.3 pp，兩類旅館共同在 7~8 月暑假及 12 月聖誕跨年見頂（跨年都會衝至 70.8%）。","textChars":105,"textLines":1,"bbox":[686,520,498,75]}
+{"kind":"chart","id":"ch/jip0vaxk","slide":4,"name":"","chartType":"bar","bbox":[76,205,520,260]}
+{"kind":"chart","id":"ch/elcve5wj","slide":4,"name":"","chartType":"line","bbox":[666,205,538,260]}
+{"kind":"notes","id":"nt/ysolrn","slide":4,"text":"【第 4 頁講稿｜建議時間：55 秒】\n「在探索性資料分析（EDA）中，我們挑選兩大核心發現：\n第一，全台住房率呈現逐年顯著回升。\n從 2023 年的 60.76%，微增至 2024 年的 60.98%，並在 2025 年躍升至 64.15%。\n透過指數化對比發現，房價 ADR 仍微跌 0.7%，這證實 2025 年的營運成長是標準的『量增型復甦』，是由住房量帶動而非漲價。\n第二，市場存在極為鮮明的季節性與星等結構差異。\n右圖顯示，都會與度假聚落皆在 7~8 月暑假迎來旺季，並在 12 月跨年衝至全年最高點；\n而在星級效益上，五星級平均 RevPAR 達 NT$3,501，為三星級的 2.3 倍，展現顯著的品牌效益與產能溢價。」"}
+{"kind":"slide","id":"sl/h0qvrg","slide":5,"title":"研究方法設計  |  建議時間：45s","textShapes":14}
+{"kind":"shape","id":"sh/elojqhwv","slide":5,"bbox":[56,38,6,56]}
+{"kind":"textbox","id":"sh/1oz21cvm","slide":5,"text":"研究方法設計  |  建議時間：45s","textPreview":"研究方法設計  |  建議時間：45s","textChars":19,"textLines":1,"bbox":[76,36,600,24]}
+{"kind":"textbox","id":"sh/0nq1sre1","slide":5,"text":"特徵工程、4 款候選模型與嚴格時間外驗證","textPreview":"特徵工程、4 款候選模型與嚴格時間外驗證","textChars":20,"textLines":1,"bbox":[76,58,1000,52]}
+{"kind":"shape","id":"sh/nqhk3mdc","slide":5,"bbox":[56,666,1168,1]}
+{"kind":"textbox","id":"sh/2p83uhw7","slide":5,"text":"資料來源：交通部觀光署《觀光旅館營運統計》（2023-01～2026-06）","textPreview":"資料來源：交通部觀光署《觀光旅館營運統計》（2023-01～2026-06）","textChars":38,"textLines":1,"bbox":[58,674,900,20]}
+{"kind":"textbox","id":"sh/psz25wvi","slide":5,"text":"Slide 05 / 08  (45s)","textPreview":"Slide 05 / 08  (45s)","textChars":20,"textLines":1,"bbox":[1000,671,224,24]}
+{"kind":"shape","id":"sh/orqlwrex","slide":5,"bbox":[56,150,368,410]}
+{"kind":"shape","id":"sh/be1k76do","slide":5,"bbox":[76,175,5,28]}
+{"kind":"textbox","id":"sh/ad83y1w3","slide":5,"text":"① 特徵工程","textPreview":"① 特徵工程","textChars":6,"textLines":1,"bbox":[90,172,310,34]}
+{"kind":"textbox","id":"sh/cvyp4zyh","slide":5,"text":"歷史滯後：前 1、2、3、12 個月住房率（Lag 1/2/3/12）\n移動平滑：近 3 個月住房率滾動均值（Roll 3M）\n週期季節：月份正弦/餘弦週期編碼（Sin/Cos Month）\n旅館屬性：星級評鑑、縣市、客房規模分箱、房價分位、外籍旅客占比","textPreview":"歷史滯後：前 1、2、3、12 個月住房率（Lag 1/2/3/12） | 移動平滑：近 3 個月住房率滾動均值（Roll 3M） | 週期季節：月份正弦/餘弦週期編碼（Sin/Cos Month） | 旅館屬性：星級評鑑、縣市、客房規模分箱、房價分位、外籍旅客占比","textChars":127,"textLines":4,"bbox":[76,220,328,260]}
+{"kind":"shape","id":"sh/dw7qx4z2","slide":5,"bbox":[76,485,328,55]}
+{"kind":"textbox","id":"sh/qtg729gb","slide":5,"text":"捕捉短期動態慣性與年週期同月基準","textPreview":"捕捉短期動態慣性與年週期同月基準","textChars":16,"textLines":1,"bbox":[86,495,308,35]}
+{"kind":"shape","id":"sh/bup8vuhw","slide":5,"bbox":[456,150,368,410]}
+{"kind":"shape","id":"sh/0zip8jyt","slide":5,"bbox":[476,175,5,28]}
+{"kind":"textbox","id":"sh/l0rq1ozy","slide":5,"text":"② 候選模型比較","textPreview":"② 候選模型比較","textChars":8,"textLines":1,"bbox":[490,172,310,34]}
+{"kind":"textbox","id":"sh/yxg769gn","slide":5,"text":"Baseline 前月基準：Yt = Yt-1（實務常用基準）\nRidge 迴歸：L2 正則化線性模型（基準對照）\nRandom Forest：隨機森林樹狀集成模型\nGradient Boosting：梯度提升決策樹（最終勝出模型）","textPreview":"Baseline 前月基準：Yt = Yt-1（實務常用基準） | Ridge 迴歸：L2 正則化線性模型（基準對照） | Random Forest：隨機森林樹狀集成模型 | Gradient Boosting：梯度提升決策樹（最終勝出模型）","textChars":116,"textLines":4,"bbox":[476,220,328,260]}
+{"kind":"shape","id":"sh/zyp8zeh8","slide":5,"bbox":[476,485,328,55]}
+{"kind":"textbox","id":"sh/8nipcjyp","slide":5,"text":"比較線性、樹集成與前月基準之預測能力","textPreview":"比較線性、樹集成與前月基準之預測能力","textChars":18,"textLines":1,"bbox":[486,495,308,35]}
+{"kind":"shape","id":"sh/9orq5oza","slide":5,"bbox":[856,150,368,410]}
+{"kind":"shape","id":"sh/x8ny9kn2","slide":5,"bbox":[876,175,5,28]}
+{"kind":"textbox","id":"sh/w7uh0zmh","slide":5,"text":"③ 嚴格時間外驗證","textPreview":"③ 嚴格時間外驗證","textChars":9,"textLines":1,"bbox":[890,172,310,34]}
+{"kind":"textbox","id":"sh/v6lg7u5c","slide":5,"text":"訓練集：2023-01～2025-12（4,138 筆觀測值）\n測試集：2026-01～2026-06（694 筆，完全時間外 Holdout）\n防洩漏管線：缺失值填補、Scaler、One-Hot 全部封裝於 Pipeline\n雙回測機制：滾動一個月日常預警 vs 固定起點六個月遞迴","textPreview":"訓練集：2023-01～2025-12（4,138 筆觀測值） | 測試集：2026-01～2026-06（694 筆，完全時間外 Holdout） | 防洩漏管線：缺失值填補、Scaler、One-Hot 全部封裝於 Pipeline | 雙回測機制：滾動一個月日常預警 ...","textChars":143,"textLines":4,"bbox":[876,220,328,260]}
+{"kind":"shape","id":"sh/a5czyp4r","slide":5,"bbox":[876,485,328,55]}
+{"kind":"textbox","id":"sh/5wnyd4ne","slide":5,"text":"測試集完全未參與訓練，模擬真實未來預測","textPreview":"測試集完全未參與訓練，模擬真實未來預測","textChars":19,"textLines":1,"bbox":[886,495,308,35]}
+{"kind":"shape","id":"sh/kveh4zmt","slide":5,"bbox":[56,575,1168,60]}
+{"kind":"textbox","id":"sh/ju5gbu58","slide":5,"text":"方法嚴謹性防護：避免一般隨機 K-Fold 切分導致『偷看未來』的 Data Leakage，本研究嚴格恪守時間軸因果性。","textPreview":"方法嚴謹性防護：避免一般隨機 K-Fold 切分導致『偷看未來』的 Data Leakage，本研究嚴格恪守時間軸因果性。","textChars":61,"textLines":1,"bbox":[76,588,1128,34]}
+{"kind":"notes","id":"nt/h0qvrg","slide":5,"text":"【第 5 頁講稿｜建議時間：45 秒】\n「進入研究方法。\n首先在特徵工程上，我們構建了前 1、2、3 與 12 個月歷史住房率、近 3 個月移動平均，搭配月份正弦餘弦週期編碼與旅館屬性特徵。\n其次，在模型選擇上，我們橫向比較了四款演算法：前月基準 Baseline、Ridge 迴歸、Random Forest 以及 Gradient Boosting。\n最後，在驗證設計上，我們恪守時間序列嚴謹性：以 2023 至 2025 年共 4,138 筆資料作為訓練集；而 2026 上半年 694 筆資料完全未參與訓練，做為真實未來的 Temporal Holdout，且所有預處理皆封裝於 Pipeline 內部，杜絕任何 Data Leakage。」"}
+{"kind":"slide","id":"sl/gjaaxc","slide":6,"title":"結果與驗證  |  建議時間：55s","textShapes":10}
+{"kind":"shape","id":"sh/s7ahcr25","slide":6,"bbox":[56,38,6,56]}
+{"kind":"textbox","id":"sh/r6hgj6l0","slide":6,"text":"結果與驗證  |  建議時間：55s","textPreview":"結果與驗證  |  建議時間：55s","textChars":18,"textLines":1,"bbox":[76,36,600,24]}
+{"kind":"textbox","id":"sh/q58fa1kf","slide":6,"text":"GB 滾動 MAE 6.08 pp 優於前月基準；實績與預測高度吻合","textPreview":"GB 滾動 MAE 6.08 pp 優於前月基準；實績與預測高度吻合","textChars":34,"textLines":1,"bbox":[76,58,1000,52]}
+{"kind":"shape","id":"sh/54zyhw3u","slide":6,"bbox":[56,666,1168,1]}
+{"kind":"textbox","id":"sh/4jqx8r29","slide":6,"text":"資料來源：交通部觀光署《觀光旅館營運統計》（2023-01～2026-06）","textPreview":"資料來源：交通部觀光署《觀光旅館營運統計》（2023-01～2026-06）","textChars":38,"textLines":1,"bbox":[58,674,900,20]}
+{"kind":"textbox","id":"sh/3ihgfmlo","slide":6,"text":"Slide 06 / 08  (55s)","textPreview":"Slide 06 / 08  (55s)","textChars":20,"textLines":1,"bbox":[1000,671,224,24]}
+{"kind":"shape","id":"sh/ih8f6hk3","slide":6,"bbox":[56,145,560,485]}
+{"kind":"textbox","id":"sh/p03ytgjy","slide":6,"text":"① 候選模型 2026 H1 時間外綜合評估","textPreview":"① 候選模型 2026 H1 時間外綜合評估","textChars":22,"textLines":1,"bbox":[76,165,520,30]}
+{"kind":"shape","id":"sh/mhcry9cv","slide":6,"bbox":[76,445,520,165]}
+{"kind":"textbox","id":"sh/nils7edg","slide":6,"text":"關鍵驗證成果：","textPreview":"關鍵驗證成果：","textChars":7,"textLines":1,"bbox":[96,460,480,26]}
+{"kind":"textbox","id":"sh/8jut0zu1","slide":6,"text":"滾動一個月 MAE 6.08 pp：相較前月基準（7.51 pp）顯著改善 1.43 個百分點，誤差減少 19%。\n解釋力 R² 達 0.85：預測偏差僅 +0.14 個百分點，無顯著系統性高估或低估。\n固定起點六個月 MAE 7.46 pp：從 2025-12 一次遞迴半年，仍顯著優於前月基準（9.42 pp）。","textPreview":"滾動一個月 MAE 6.08 pp：相較前月基準（7.51 pp）顯著改善 1.43 個百分點，誤差減少 19%。 | 解釋力 R² 達 0.85：預測偏差僅 +0.14 個百分點，無顯著系統性高估或低估。 | 固定起點六個月 MAE 7.46 pp：從 2025-12 一...","textChars":158,"textLines":3,"bbox":[96,492,480,110]}
+{"kind":"shape","id":"sh/9kna94vm","slide":6,"bbox":[646,145,578,485]}
+{"kind":"textbox","id":"sh/ytcrupcz","slide":6,"text":"② 2026 上半年預測 vs 官方實績比較圖","textPreview":"② 2026 上半年預測 vs 官方實績比較圖","textChars":23,"textLines":1,"bbox":[666,165,540,30]}
+{"kind":"shape","id":"sh/0fu9wzu5","slide":6,"bbox":[666,475,538,135]}
+{"kind":"textbox","id":"sh/lg3a54va","slide":6,"text":"曲線貼合分析：高度捕捉月度轉折","textPreview":"曲線貼合分析：高度捕捉月度轉折","textChars":15,"textLines":1,"bbox":[686,490,498,26]}
+{"kind":"textbox","id":"sh/ipwb6tc3","slide":6,"text":"全台月均預測與實績之落差僅落在 0.03%～1.16% 之間；模型精準預測出 2~3 月春季商務回溫高峰（61.9%），並成功捕捉 4~6 月平穩盤整趨勢，展現卓越穩定性。","textPreview":"全台月均預測與實績之落差僅落在 0.03%～1.16% 之間；模型精準預測出 2~3 月春季商務回溫高峰（61.9%），並成功捕捉 4~6 月平穩盤整趨勢，展現卓越穩定性。","textChars":86,"textLines":1,"bbox":[686,520,498,75]}
+{"kind":"chart","id":"ch/7ulov2hc","slide":6,"name":"","chartType":"line","bbox":[666,205,538,260]}
+{"kind":"table","id":"tb/t836xobe","slide":6,"name":"","rows":5,"cols":6,"preview":"候選模型 | 滾動 MAE | RMSE | R² | 偏差 Bias | 固定6M MAE","bbox":[76,210,520,220]}
+{"kind":"notes","id":"nt/gjaaxc","slide":6,"text":"【第 6 頁講稿｜建議時間：55 秒】\n「第六頁為本研究的核心成果與時間外驗證。\n左側表格顯示四款模型在 2026 上半年 694 筆未見資料上的評估結果：\n正式選用的 Gradient Boosting 滾動一個月 MAE 為 6.08 個百分點、R² 達 0.85，相較於前月基準的 7.51 個百分點，顯著縮減了 19% 的誤差；固定起點六個月遞迴回測 MAE 為 7.46 個百分點。\n右側圖表呈現 2026 上半年全台平均預測值與觀光署官方實績的對照走勢：\n兩條曲線高度貼合，精確捕捉到春季回溫與 6 月平穩的月度轉折，月均誤差多在 1 個百分點以內，充分驗證了模型的實用性。」"}
+{"kind":"slide","id":"sl/bbjebz","slide":7,"title":"關鍵洞察與限制  |  建議時間：40s","textShapes":23}
+{"kind":"shape","id":"sh/9sju1876","slide":7,"bbox":[56,38,6,56]}
+{"kind":"textbox","id":"sh/m5sbqdov","slide":7,"text":"關鍵洞察與限制  |  建議時間：40s","textPreview":"關鍵洞察與限制  |  建議時間：40s","textChars":20,"textLines":1,"bbox":[76,36,600,24]}
+{"kind":"textbox","id":"sh/n61czyp0","slide":7,"text":"模型約 94% 依賴歷史慣性；誠實揭露研究與資料邊界","textPreview":"模型約 94% 依賴歷史慣性；誠實揭露研究與資料邊界","textChars":26,"textLines":1,"bbox":[76,58,1000,52]}
+{"kind":"shape","id":"sh/wvadwn6x","slide":7,"bbox":[56,666,1168,1]}
+{"kind":"textbox","id":"sh/xw3upsni","slide":7,"text":"資料來源：交通部觀光署《觀光旅館營運統計》（2023-01～2026-06）","textPreview":"資料來源：交通部觀光署《觀光旅館營運統計》（2023-01～2026-06）","textChars":38,"textLines":1,"bbox":[58,674,900,20]}
+{"kind":"textbox","id":"sh/atsvudor","slide":7,"text":"Slide 07 / 08  (40s)","textPreview":"Slide 07 / 08  (40s)","textChars":20,"textLines":1,"bbox":[1000,671,224,24]}
+{"kind":"shape","id":"sh/vu1c3ipc","slide":7,"bbox":[56,145,560,485]}
+{"kind":"shape","id":"sh/kzud0n6t","slide":7,"bbox":[86,172,6,30]}
+{"kind":"textbox","id":"sh/503utsne","slide":7,"text":"核心洞察：慣性主導（佔比約 94%）","textPreview":"核心洞察：慣性主導（佔比約 94%）","textChars":18,"textLines":1,"bbox":[102,170,480,34]}
+{"kind":"shape","id":"sh/xofuts7y","slide":7,"bbox":[86,220,500,42]}
+{"kind":"textbox","id":"sh/cn6tkn6d","slide":7,"text":"前 1 月住房率（Lag 1）","textPreview":"前 1 月住房率（Lag 1）","textChars":15,"textLines":1,"bbox":[102,228,360,26]}
+{"kind":"textbox","id":"sh/bmxcr2ps","slide":7,"text":"62.5%","textPreview":"62.5%","textChars":5,"textLines":1,"bbox":[460,228,110,26]}
+{"kind":"shape","id":"sh/alobixon","slide":7,"bbox":[86,270,500,42]}
+{"kind":"textbox","id":"sh/lczuxc7a","slide":7,"text":"近 3 月移動均值（Roll 3M）","textPreview":"近 3 月移動均值（Roll 3M）","textChars":18,"textLines":1,"bbox":[102,278,360,26]}
+{"kind":"textbox","id":"sh/krqto76p","slide":7,"text":"28.0%","textPreview":"28.0%","textChars":5,"textLines":1,"bbox":[460,278,110,26]}
+{"kind":"shape","id":"sh/zqxcv2p4","slide":7,"bbox":[86,320,500,42]}
+{"kind":"textbox","id":"sh/ypobmxoj","slide":7,"text":"去年同月住房率（Lag 12）","textPreview":"去年同月住房率（Lag 12）","textChars":15,"textLines":1,"bbox":[102,328,360,26]}
+{"kind":"textbox","id":"sh/1gval87q","slide":7,"text":"4.0%","textPreview":"4.0%","textChars":4,"textLines":1,"bbox":[460,328,110,26]}
+{"kind":"shape","id":"sh/0vmtc365","slide":7,"bbox":[86,375,500,60]}
+{"kind":"textbox","id":"sh/sbalo7id","slide":7,"text":"前三項歷史特徵合計佔據模型重要性 94.5%！","textPreview":"前三項歷史特徵合計佔據模型重要性 94.5%！","textChars":23,"textLines":1,"bbox":[102,390,470,30]}
+{"kind":"textbox","id":"sh/dcj2hcjy","slide":7,"text":"營運輸入影響 < 3% 的管理意涵：","textPreview":"營運輸入影響 < 3% 的管理意涵：","textChars":18,"textLines":1,"bbox":[86,450,500,28]}
+{"kind":"textbox","id":"sh/q983mx07","slide":7,"text":"房價 ADR、旅客結構、員工數等外部參數對模型推論貢獻極小。這表明本模型本質是『加入季節性修正的住房率慣性模型』，反映出旅館營運存在極強的品牌與市場結構慣性，短期微調房價難以立刻逆轉住房率大勢。","textPreview":"房價 ADR、旅客結構、員工數等外部參數對模型推論貢獻極小。這表明本模型本質是『加入季節性修正的住房率慣性模型』，反映出旅館營運存在極強的品牌與市場結構慣性，短期微調房價難以立刻逆轉住房率大勢。","textChars":97,"textLines":1,"bbox":[86,480,500,130]}
+{"kind":"shape","id":"sh/rahkf21s","slide":7,"bbox":[646,145,578,485]}
+{"kind":"shape","id":"sh/0falsrip","slide":7,"bbox":[676,172,6,30]}
+{"kind":"textbox","id":"sh/1gj2lwju","slide":7,"text":"研究限制與資料邊界（誠實揭露）","textPreview":"研究限制與資料邊界（誠實揭露）","textChars":15,"textLines":1,"bbox":[692,170,490,34]}
+{"kind":"shape","id":"sh/eds3qh0j","slide":7,"bbox":[676,220,518,92]}
+{"kind":"textbox","id":"sh/fe1kjm14","slide":7,"text":"飯店層級彙總資料","textPreview":"飯店層級彙總資料","textChars":8,"textLines":1,"bbox":[696,228,480,26]}
+{"kind":"textbox","id":"sh/o3ulwril","slide":7,"text":"資料為飯店×月份宏觀彙總，本質上無法進行單筆訂單取消預測、個人彈性分析或因果推論。","textPreview":"資料為飯店×月份宏觀彙總，本質上無法進行單筆訂單取消預測、個人彈性分析或因果推論。","textChars":41,"textLines":1,"bbox":[696,256,480,50]}
+{"kind":"shape","id":"sh/p43mpwj6","slide":7,"bbox":[676,320,518,92]}
+{"kind":"textbox","id":"sh/zy5ofql8","slide":7,"text":"未納即時外部衝擊","textPreview":"未納即時外部衝擊","textChars":8,"textLines":1,"bbox":[696,328,480,26]}
+{"kind":"textbox","id":"sh/yxwnmlkn","slide":7,"text":"連假、即時天氣與在地大型活動未納入（假日特徵實驗因未顯著通過三項門檻而恪守準則未採用）。","textPreview":"連假、即時天氣與在地大型活動未納入（假日特徵實驗因未顯著通過三項門檻而恪守準則未採用）。","textChars":44,"textLines":1,"bbox":[696,356,480,50]}
+{"kind":"shape","id":"sh/l0n6h03e","slide":7,"bbox":[676,420,518,92]}
+{"kind":"textbox","id":"sh/kze5ov2t","slide":7,"text":"多月遞迴誤差擴大","textPreview":"多月遞迴誤差擴大","textChars":8,"textLines":1,"bbox":[696,428,480,26]}
+{"kind":"textbox","id":"sh/ba5obqlc","slide":7,"text":"預測距離由 1 個月拉長至 6 個月時，遞迴累積誤差由 MAE 6.07 pp 擴大至 8.41 pp（R² 降至 0.65）。","textPreview":"預測距離由 1 個月拉長至 6 個月時，遞迴累積誤差由 MAE 6.07 pp 擴大至 8.41 pp（R² 降至 0.65）。","textChars":64,"textLines":1,"bbox":[696,456,480,50]}
+{"kind":"shape","id":"sh/a9cnilkr","slide":7,"bbox":[676,520,518,92]}
+{"kind":"textbox","id":"sh/xcn6dg32","slide":7,"text":"單一需求體制侷限","textPreview":"單一需求體制侷限","textChars":8,"textLines":1,"bbox":[696,528,480,26]}
+{"kind":"textbox","id":"sh/cbe5kv2x","slide":7,"text":"僅使用 2023 起資料，反映疫後自由行體制，未涵蓋疫前陸客團體大潮之不同景氣循環。","textPreview":"僅使用 2023 起資料，反映疫後自由行體制，未涵蓋疫前陸客團體大潮之不同景氣循環。","textChars":42,"textLines":1,"bbox":[696,556,480,50]}
+{"kind":"notes","id":"nt/bbjebz","slide":7,"text":"【第 7 頁講稿｜建議時間：40 秒】\n「第七頁是本研究的關鍵洞察與限制。\n特徵重要性分析揭露了一項重要事實：\n模型約 94.5% 的推論權重來自住房率自身的歷史慣性（前月 62.5%＋近三月均值 28.0%＋去年同月 4.0%）；\n而房價、旅客結構等營運輸入影響合計小於 3%。這說明本模型本質上是『加入季節性修正的慣性模型』，短期微調定價無法立即翻轉市場慣性。\n在限制方面，我們恪守學術嚴謹性誠實揭露四點：\n第一，飯店月度彙總無法做單筆取消預測；\n第二，未納入連假、天氣等即時微觀變數；\n第三，多月遞迴預測隨距離拉長誤差會擴大；\n第四，資料僅代表 2023 年起的單一需求體制。」"}
+{"kind":"slide","id":"sl/iyzaqd","slide":8,"title":"結論與實務應用  |  建議時間：25s","textShapes":16}
+{"kind":"shape","id":"sh/wr2d03yp","slide":8,"bbox":[56,38,6,56]}
+{"kind":"textbox","id":"sh/vqtc7yx4","slide":8,"text":"結論與實務應用  |  建議時間：25s","textPreview":"結論與實務應用  |  建議時間：25s","textChars":20,"textLines":1,"bbox":[76,36,600,24]}
+{"kind":"textbox","id":"sh/apkvytgj","slide":8,"text":"一個月預警支援收益管理；落地 Streamlit 互動儀表板","textPreview":"一個月預警支援收益管理；落地 Streamlit 互動儀表板","textChars":30,"textLines":1,"bbox":[76,58,1000,52]}
+{"kind":"shape","id":"sh/9obu5ofy","slide":8,"bbox":[56,666,1168,1]}
+{"kind":"textbox","id":"sh/8nidwjyt","slide":8,"text":"資料來源：交通部觀光署《觀光旅館營運統計》（2023-01～2026-06）","textPreview":"資料來源：交通部觀光署《觀光旅館營運統計》（2023-01～2026-06）","textChars":38,"textLines":1,"bbox":[58,674,900,20]}
+{"kind":"textbox","id":"sh/n29c3ex8","slide":8,"text":"Slide 08 / 08  (25s)","textPreview":"Slide 08 / 08  (25s)","textChars":20,"textLines":1,"bbox":[1000,671,224,24]}
+{"kind":"shape","id":"sh/m10vutgn","slide":8,"bbox":[56,145,560,485]}
+{"kind":"shape","id":"sh/l0ru1of2","slide":8,"bbox":[86,172,6,30]}
+{"kind":"textbox","id":"sh/0zitsjyh","slide":8,"text":"研究結論與實務價值","textPreview":"研究結論與實務價值","textChars":9,"textLines":1,"bbox":[102,170,480,34]}
+{"kind":"textbox","id":"sh/ip8fixkv","slide":8,"text":"提前一個月營運預警：驗證證實公開月報足以支撐提前一個月之住房率量化預警（MAE 6.08 pp），提供 30 天管理前置期。\n支援收益管理與排班：協助經理人在預期低住房率時提早促銷、爭取團客與調整排班；在高住房率時保護價格溢價。\n落地實現 Streamlit 互動儀表板：已開發為完整 Web 儀表板，支援全台歷史營運分析、星級比較、單店住房率即時預測與多月模擬情境。","textPreview":"提前一個月營運預警：驗證證實公開月報足以支撐提前一個月之住房率量化預警（MAE 6.08 pp），提供 30 天管理前置期。 | 支援收益管理與排班：協助經理人在預期低住房率時提早促銷、爭取團客與調整排班；在高住房率時保護價格溢價。 | 落地實現 Streamlit 互動儀...","textChars":184,"textLines":3,"bbox":[86,220,500,220]}
+{"kind":"shape","id":"sh/jqhgb21g","slide":8,"bbox":[86,460,500,140]}
+{"kind":"textbox","id":"sh/kraxk721","slide":8,"text":"產業定位定錨：","textPreview":"產業定位定錨：","textChars":7,"textLines":1,"bbox":[106,478,460,28]}
+{"kind":"textbox","id":"sh/5sjydcjm","slide":8,"text":"「把模型當作提前一個月的量化參考與空房預警工具，而非自動定價承諾或取代每日 PMS 控房。」","textPreview":"「把模型當作提前一個月的量化參考與空房預警工具，而非自動定價承諾或取代每日 PMS 控房。」","textChars":46,"textLines":1,"bbox":[106,510,460,75]}
+{"kind":"shape","id":"sh/al8fexkz","slide":8,"bbox":[646,145,578,485]}
+{"kind":"shape","id":"sh/vmhg721k","slide":8,"bbox":[676,172,6,30]}
+{"kind":"textbox","id":"sh/wnqxgn2p","slide":8,"text":"未來研究與擴充展望","textPreview":"未來研究與擴充展望","textChars":9,"textLines":1,"bbox":[692,170,490,34]}
+{"kind":"shape","id":"sh/xozy9sja","slide":8,"bbox":[676,220,518,100]}
+{"kind":"textbox","id":"sh/mxofadkn","slide":8,"text":"回補 2016–2019 疫前年份歷史資料","textPreview":"回補 2016–2019 疫前年份歷史資料","textChars":21,"textLines":1,"bbox":[696,230,480,26]}
+{"kind":"textbox","id":"sh/nyxg3i18","slide":8,"text":"納入疫前陸客大潮資料，並導入『陸客占比與邊境管制體制變數』，強化模型跨景氣循環之強健度。","textPreview":"納入疫前陸客大潮資料，並導入『陸客占比與邊境管制體制變數』，強化模型跨景氣循環之強健度。","textChars":44,"textLines":1,"bbox":[696,258,480,54]}
+{"kind":"shape","id":"sh/rqt4vudo","slide":8,"bbox":[676,332,518,100]}
+{"kind":"textbox","id":"sh/qpk3mpw3","slide":8,"text":"導入 SHAP 局部特徵解釋性 AI","textPreview":"導入 SHAP 局部特徵解釋性 AI","textChars":18,"textLines":1,"bbox":[696,342,480,26]}
+{"kind":"textbox","id":"sh/dsbmxkvu","slide":8,"text":"運用 SHAP 歸因分析，為個別旅館提供量身打造的特徵貢獻度解析，輔助單店制定專屬營運對策。","textPreview":"運用 SHAP 歸因分析，為個別旅館提供量身打造的特徵貢獻度解析，輔助單店制定專屬營運對策。","textChars":46,"textLines":1,"bbox":[696,370,480,54]}
+{"kind":"shape","id":"sh/sr2lofe9","slide":8,"bbox":[676,444,518,100]}
+{"kind":"textbox","id":"sh/fut4zud0","slide":8,"text":"串接前瞻訂房與微觀資料","textPreview":"串接前瞻訂房與微觀資料","textChars":11,"textLines":1,"bbox":[696,454,480,26]}
+{"kind":"textbox","id":"sh/etk3qpwf","slide":8,"text":"若未來能取得旅館端 PMS 每日訂房進度、取消率、即時天氣與在地展會活動，將進一步實現高精度動態房控。","textPreview":"若未來能取得旅館端 PMS 每日訂房進度、取消率、即時天氣與在地展會活動，將進一步實現高精度動態房控。","textChars":51,"textLines":1,"bbox":[696,482,480,54]}
+{"kind":"shape","id":"sh/1gvm14vq","slide":8,"bbox":[676,560,518,55]}
+{"kind":"textbox","id":"sh/0vmlszel","slide":8,"text":"簡報結束，敬請口試委員指教！ Thank you.","textPreview":"簡報結束，敬請口試委員指教！ Thank you.","textChars":25,"textLines":1,"bbox":[676,560,518,55]}
+{"kind":"notes","id":"nt/iyzaqd","slide":8,"text":"【第 8 頁講稿｜建議時間：25 秒】\n「最後是結論與未來展望。\n本專題證實公開月報能夠提供可靠的提前一個月住房率預警，支援收益管理與人力調配，且已完整實作為 Streamlit 互動儀表板。\n未來展望包含回補 2016 至 2019 疫前歷史資料並引入陸客體制變數、導入 SHAP 模型解釋性，以及進一步串接前瞻訂房資料。\n以上為我的口試報告，敬請各位口試委員指教，謝謝！」"}
