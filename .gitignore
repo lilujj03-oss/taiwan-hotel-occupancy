@@ -13,10 +13,11 @@ data/processed/hotel_daily_features.csv
 data/processed/hotel_monthly_features.csv
 data/processed/hotel_monthly_features_current.csv
 
-# ── 只保留 App 執行需要的兩個模型，其餘 .pkl 不進 repo ──
+# ── 只保留 App 執行需要的模型，其餘 .pkl 不進 repo ──
 models/*.pkl
 !models/monthly_model_through_202606.pkl
 !models/decision_tree.pkl
+!models/monthly_model_3way.pkl
 models/experiments/
 
 # ── 報告 / 簡報 / Word 文件（另存，不進作品集 repo）────
